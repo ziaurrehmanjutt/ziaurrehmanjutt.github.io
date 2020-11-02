@@ -15,9 +15,12 @@
   <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
   <link href="css/jcarousel.css" rel="stylesheet" />
   <link href="css/flexslider.css" rel="stylesheet" />
+  <link href="css/slitslider.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
   <!-- Theme skin -->
-  <link href="skins/default.css" rel="stylesheet" />
+  <link id="t-colors" href="skins/default.css" rel="stylesheet" />
+  <!-- boxed bg -->
+  <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
@@ -52,7 +55,7 @@
     <!-- end toggle top area -->
     <!-- start header -->
     <header>
-      <div class="container ">
+      <div class="container">
         <!-- hidden top area toggle link -->
         <div id="header-hidden-link">
           <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
@@ -243,53 +246,85 @@
     <!-- end header -->
     <section id="featured">
       <!-- start slider -->
-      <!-- Slider -->
-      <div id="nivo-slider">
-        <div class="nivo-slider">
-          <!-- Slide #1 image -->
-          <img src="img/slides/nivo/bg-1.jpg" alt="" title="#caption-1" />
-          <!-- Slide #2 image -->
-          <img src="img/slides/nivo/bg-2.jpg" alt="" title="#caption-2" />
-          <!-- Slide #3 image -->
-          <img src="img/slides/nivo/bg-3.jpg" alt="" title="#caption-3" />
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="span12">
-              <!-- Slide #1 caption -->
-              <div class="nivo-caption" id="caption-1">
-                <div>
-                  <h2>Awesome <strong>features</strong></h2>
-                  <p>
-                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                  </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
-                </div>
+      <div id="slider" class="sl-slider-wrapper demo-2">
+        <div class="sl-slider">
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-1">
               </div>
-              <!-- Slide #2 caption -->
-              <div class="nivo-caption" id="caption-2">
-                <div>
-                  <h2>Fully <strong>responsive</strong></h2>
-                  <p>
-                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                  </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
-                </div>
+              <h2><strong>Premium</strong> template</h2>
+              <blockquote>
+                <p>
+                  You have just dined, and however scrupulously the slaughterhouse is concealed in the graceful distance of miles, there is complicity.
+                </p>
+                <cite>Johny Doe Mblangsak</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-2">
               </div>
-              <!-- Slide #3 caption -->
-              <div class="nivo-caption" id="caption-3">
-                <div>
-                  <h2>Very <strong>customizable</strong></h2>
-                  <p>
-                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                  </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
-                </div>
+              <h2><strong>Twitter</strong> bootstrap</h2>
+              <blockquote>
+                <p>
+                  Until he extends the circle of his compassion to all living things, man will not himself find peace.
+                </p>
+                <cite>Ramond Schummiler</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-3">
               </div>
+              <h2><strong>Responsive</strong> layout</h2>
+              <blockquote>
+                <p>
+                  Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the flesh of creatures who have been utterly deprived of everything that could make their lives worth living and who endured the awful suffering and the terror of the
+                  abattoirs.
+                </p>
+                <cite>Andress Michel Aorta</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-4">
+              </div>
+              <h2><strong>Awesome</strong> features</h2>
+              <blockquote>
+                <p>
+                  The human body has no more need for cows' milk than it does for dogs' milk, horses' milk, or giraffes' milk.
+                </p>
+                <cite>Smilee Bounvaller</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-5">
+              </div>
+              <h2><strong>Premium</strong> support</h2>
+              <blockquote>
+                <p>
+                  I think if you want to eat more meat you should kill it yourself and eat it raw so that you are not blinded by the hypocrisy of having it processed for you.
+                </p>
+                <cite>Clarke Edward Thompson</cite>
+              </blockquote>
             </div>
           </div>
         </div>
+        <!-- /sl-slider -->
+        <nav id="nav-dots" class="nav-dots">
+          <span class="nav-dot-current"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </nav>
       </div>
+      <!-- /slider-wrapper -->
       <!-- end slider -->
     </section>
     <section class="callaction">
@@ -682,4 +717,5 @@
   <script src="js/custom.js"></script>
 
 </body>
+
 </html>

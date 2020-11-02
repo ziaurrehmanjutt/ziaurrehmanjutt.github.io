@@ -18,6 +18,8 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- Theme skin -->
   <link href="skins/default.css" rel="stylesheet" />
+  <!-- boxed bg -->
+  <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
@@ -52,7 +54,7 @@
     <!-- end toggle top area -->
     <!-- start header -->
     <header>
-      <div class="container ">
+      <div class="container">
         <!-- hidden top area toggle link -->
         <div id="header-hidden-link">
           <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
@@ -176,7 +178,7 @@
               <div class="navigation">
                 <nav>
                   <ul class="nav topnav">
-                    <li class="dropdown active">
+                    <li class="dropdown">
                       <a href="index.html">Home <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
                         <li><a href="index-alt2.html">Homepage 2</a></li>
@@ -201,7 +203,7 @@
                         </li>
                       </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                       <a href="#">Pages <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
                         <li><a href="about.html">About us</a></li>
@@ -241,69 +243,20 @@
       </div>
     </header>
     <!-- end header -->
-    <section id="featured">
-      <!-- start slider -->
-      <!-- Slider -->
-      <div id="nivo-slider">
-        <div class="nivo-slider">
-          <!-- Slide #1 image -->
-          <img src="img/slides/nivo/bg-1.jpg" alt="" title="#caption-1" />
-          <!-- Slide #2 image -->
-          <img src="img/slides/nivo/bg-2.jpg" alt="" title="#caption-2" />
-          <!-- Slide #3 image -->
-          <img src="img/slides/nivo/bg-3.jpg" alt="" title="#caption-3" />
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="span12">
-              <!-- Slide #1 caption -->
-              <div class="nivo-caption" id="caption-1">
-                <div>
-                  <h2>Awesome <strong>features</strong></h2>
-                  <p>
-                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                  </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
-                </div>
-              </div>
-              <!-- Slide #2 caption -->
-              <div class="nivo-caption" id="caption-2">
-                <div>
-                  <h2>Fully <strong>responsive</strong></h2>
-                  <p>
-                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                  </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
-                </div>
-              </div>
-              <!-- Slide #3 caption -->
-              <div class="nivo-caption" id="caption-3">
-                <div>
-                  <h2>Very <strong>customizable</strong></h2>
-                  <p>
-                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                  </p>
-                  <a href="#" class="btn btn-theme">Read More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end slider -->
-    </section>
-    <section class="callaction">
+    <section id="inner-headline">
       <div class="container">
         <div class="row">
-          <div class="span12">
-            <div class="big-cta">
-              <div class="cta-text">
-                <h3>We've created more than <span class="highlight"><strong>5000 websites</strong></span> this year!</h3>
-              </div>
-              <div class="cta floatright">
-                <a class="btn btn-large btn-theme btn-rounded" href="#">Request a quote</a>
-              </div>
+          <div class="span4">
+            <div class="inner-heading">
+              <h2>About us</h2>
             </div>
+          </div>
+          <div class="span8">
+            <ul class="breadcrumb">
+              <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+              <li><a href="#">Pages</a><i class="icon-angle-right"></i></li>
+              <li class="active">About us</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -311,64 +264,92 @@
     <section id="content">
       <div class="container">
         <div class="row">
+          <div class="span6">
+            <h2>Welcome to <strong>Flattern</strong></h2>
+            <p>
+              Ei mel semper vocent persequeris, nominavi patrioque vituperata id vim, cu eam gloriatur philosophia deterruisset. Meliore perfecto repudiare ea nam, ne mea duis temporibus. Id quo accusam consequuntur, eum ea debitis urbanitas. Nibh reformidans vim ne.
+            </p>
+            <p>
+              Iudico definiebas eos ea, dicat inermis hendrerit vel ei, legimus copiosae quo at. Per utinam corrumpit prodesset te, liber praesent eos an. An prodesset neglegentur qui, usu ancillae posidonium in, mea ex eros animal scribentur. Et simul fabellas sit.
+              Populo inimicus ne est.
+            </p>
+            <p>
+              Alii wisi phaedrum quo te, duo cu alia neglegentur. Quo nonumy detraxit cu, viderer reformidans ut eos, lobortis euripidis posidonium et usu. Sed meis bonorum minimum cu, stet aperiam qualisque eu vim, vide luptatum ei nec. Ei nam wisi labitur mediocrem.
+              Nam saepe appetere ut, veritus graecis minimum no vim. Vidisse impedit id per.
+            </p>
+          </div>
+          <div class="span6">
+            <!-- start flexslider -->
+            <div class="flexslider">
+              <ul class="slides">
+                <li>
+                  <img src="img/works/full/image-01-full.jpg" alt="" />
+                </li>
+                <li>
+                  <img src="img/works/full/image-02-full.jpg" alt="" />
+                </li>
+                <li>
+                  <img src="img/works/full/image-03-full.jpg" alt="" />
+                </li>
+              </ul>
+            </div>
+            <!-- end flexslider -->
+          </div>
+        </div>
+        <!-- divider -->
+        <div class="row">
           <div class="span12">
-            <div class="row">
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-briefcase icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Corporate business</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-desktop icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Responsive theme</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-beaker icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Coded carefully</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-coffee icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Sit and enjoy</h6>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#">Learn more</a>
-                  </div>
-                </div>
-              </div>
+            <div class="solidline">
+            </div>
+          </div>
+        </div>
+        <!-- end divider -->
+        <div class="row">
+          <div class="span12">
+            <h4>Talented peoples behind Flattern</h4>
+          </div>
+          <div class="span3">
+            <img src="img/dummies/team1.jpg" alt="" class="img-polaroid" />
+            <div class="roles">
+              <p class="lead">
+                <strong>Vincent Austin Jr</strong>
+              </p>
+              <p>
+                CEO - Founder
+              </p>
+            </div>
+          </div>
+          <div class="span3">
+            <img src="img/dummies/team2.jpg" alt="" class="img-polaroid" />
+            <div class="roles">
+              <p class="lead">
+                <strong>Tommy Laugher</strong>
+              </p>
+              <p>
+                Lead designer
+              </p>
+            </div>
+          </div>
+          <div class="span3">
+            <img src="img/dummies/team3.jpg" alt="" class="img-polaroid" />
+            <div class="roles">
+              <p class="lead">
+                <strong>Gabirelle Borowski</strong>
+              </p>
+              <p>
+                Customer support
+              </p>
+            </div>
+          </div>
+          <div class="span3">
+            <img src="img/dummies/team4.jpg" alt="" class="img-polaroid" />
+            <div class="roles">
+              <p class="lead">
+                <strong>Benny Strongton</strong>
+              </p>
+              <p>
+                Coffee maker
+              </p>
             </div>
           </div>
         </div>
@@ -380,192 +361,88 @@
           </div>
         </div>
         <!-- end divider -->
-        <!-- Portfolio Projects -->
         <div class="row">
-          <div class="span12">
-            <h4 class="heading">Some of recent <strong>works</strong></h4>
-            <div class="row">
-              <section id="projects">
-                <ul id="thumbs" class="portfolio">
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 design" data-id="id-0" data-type="web">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="img/works/full/image-01-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-01.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 design" data-id="id-1" data-type="icon">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="img/works/full/image-02-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-02.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-03-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-03.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-04-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-04.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 photography" data-id="id-4" data-type="web">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Sea" href="img/works/full/image-05-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-05.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 photography" data-id="id-5" data-type="icon">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Clouds" href="img/works/full/image-06-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-06.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-07-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-07.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                  <!-- Item Project and Filter Name -->
-                  <li class="item-thumbs span3 design" data-id="id-0" data-type="web">
-                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Dark" href="img/works/full/image-08-full.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-                    <!-- Thumb Image and Description -->
-                    <img src="img/works/thumbs/image-08.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                  </li>
-                  <!-- End Item Project -->
-                </ul>
-              </section>
-            </div>
-          </div>
-        </div>
-        <!-- End Portfolio Projects -->
-        <!-- divider -->
-        <div class="row">
-          <div class="span12">
-            <div class="solidline">
-            </div>
-          </div>
-        </div>
-        <!-- end divider -->
-        <div class="row">
-          <div class="span12">
-            <h4>Very satisfied <strong>clients</strong></h4>
-            <ul id="mycarousel" class="jcarousel-skin-tango recent-jcarousel clients">
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client1.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client2.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client3.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client4.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client5.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client6.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client1.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client2.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client3.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client4.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client5.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client6.png" class="client-logo" alt="" />
-					</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="bottom">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <div class="aligncenter">
-              <div id="twitter-wrapper">
-                <div id="twitter">
+          <div class="span6">
+            <h4>More about us</h4>
+            <div class="accordion" id="accordion2">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+							1. What we do </a>
                 </div>
+                <div id="collapseOne" class="accordion-body collapse in">
+                  <div class="accordion-inner">
+                    <p>
+                      Diam alienum oporteat ad vis, latine intellegebat cu his. Ei eros dicam commodo duo, an assum meliore eam. In sed albucius dissentiet. Sit laudem graece malorum ne, at eam omnesque expetenda pertinacia, tale meliore vim ea. Dolore legere deleniti ius
+                      at, mea nibh discere perfecto ex. Mea ea iuvaret eripuit, eos no vivendo intellegat definiebas, patrioque eloquentiam eos et.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+							2. Work process </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <p>
+                      Nihil suscipit posidonium eos id. An cetero fierent insolens mel, ex sit rebum falli erroribus. Ius in nemore dolorum officiis. Et vel harum dicant, vix eius persius an. Ex eam malis postea, erat nihil consulatu nam ea. Ex quem dolores euripidis eum,
+                      tempor aperiam voluptaria has ad. Ea est persecuti dissentiet voluptatibus, at illum malorum minimum usu eum aeterno tritani.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+							3. Quality assurance </a>
+                </div>
+                <div id="collapseThree" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <p>
+                      Vel purto oportere principes ne, ut mel graeco omnesque. Habeo justo congue mei cu, eu est molestie sensibus, oratio tibique ad mei. Admodum consetetur cu eam, nec cu doming prompta inciderint, ne vim ceteros mnesarchum scriptorem. Ex eam malis postea,
+                      erat nihil consulatu nam ea. Ex quem dolores euripidis eum, tempor aperiam voluptaria has ad. Et vel harum dicant vix.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+							4. What we can deliver </a>
+                </div>
+                <div id="collapseFour" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <p>
+                      Diam alienum oporteat ad vis, latine intellegebat cu his. Ei eros dicam commodo duo, an assum meliore eam. In sed albucius dissentiet. Sit laudem graece malorum ne, at eam omnesque expetenda pertinacia, tale meliore vim ea. Dolore legere deleniti ius
+                      at, mea nibh discere perfecto ex. Mea ea iuvaret eripuit, eos no vivendo intellegat definiebas, patrioque eloquentiam eos et.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span6">
+            <h4>Our expertise</h4>
+            <label>Web design:</label>
+            <div class="progress progress-info progress-striped active">
+              <div class="bar" style="width: 90%">
+              </div>
+            </div>
+            <label>Wordpress :</label>
+            <div class="progress progress-success progress-striped active">
+              <div class="bar" style="width: 60%">
+              </div>
+            </div>
+            <label>Photoshop :</label>
+            <div class="progress progress-warning progress-striped active">
+              <div class="bar" style="width: 80%">
+              </div>
+            </div>
+            <label>Ilustrator :</label>
+            <div class="progress progress-danger progress-striped active">
+              <div class="bar" style="width: 40%">
               </div>
             </div>
           </div>
@@ -682,4 +559,5 @@
   <script src="js/custom.js"></script>
 
 </body>
+
 </html>
