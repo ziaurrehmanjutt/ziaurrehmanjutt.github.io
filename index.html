@@ -54,9 +54,9 @@
     <header>
       <div class="container ">
         <!-- hidden top area toggle link -->
-        <div id="header-hidden-link">
+        <!-- <div id="header-hidden-link">
           <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
-        </div>
+        </div> -->
         <!-- end toggle link -->
         <!-- <div class="row nomargin">
           <div class="span12">
@@ -164,12 +164,12 @@
         </div> -->
 
         
-        <div class="row">
+        <div class="row" style="margin-bottom: 0px;">
           <div class="span4">
-            <div class="logo">
+            <!-- <div class="logo">
               <a href="index.html"><img src="img/logo.png" alt="" class="logo" /></a>
               <h1>Flat and trendy bootstrap template</h1>
-            </div>
+            </div> -->
           </div>
           <div class="span8">
             <div class="navbar navbar-static-top">
@@ -678,8 +678,30 @@
   <script src="js/jquery.slitslider.js"></script>
   <script src="js/animate.js"></script>
 
-  <!-- Template Custom JavaScript File -->
-  <script src="js/custom.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAJ6ZqVdpjiU_AzZMtv4ijruqu9Z-QUvKw",
+    authDomain: "portfoleo-d2ee0.firebaseapp.com",
+    databaseURL: "https://portfoleo-d2ee0.firebaseio.com",
+    projectId: "portfoleo-d2ee0",
+    storageBucket: "portfoleo-d2ee0.appspot.com",
+    messagingSenderId: "395550221424",
+    appId: "1:395550221424:web:dac374dd23a7e515ee00b5",
+    measurementId: "G-5NLYR36CN3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
 </body>
 </html>
