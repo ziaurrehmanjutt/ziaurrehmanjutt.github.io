@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vCard QR Code Generator - Digital Business Card | DiyaQR</title>
+  <meta name="description" content="Turn your contact details into a QR code. When someone scans it, their phone offers to save your name, phone, email, company and website as a new contact.">
+  <link rel="canonical" href="https://ziaurrehmanjutt.github.io/diyaqr/create/vcard/">
+  <meta name="theme-color" content="#0b6b60">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/icon-192.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DiyaQR">
+  <meta property="og:title" content="vCard QR Code Generator - Digital Business Card | DiyaQR">
+  <meta property="og:description" content="Turn your contact details into a QR code. When someone scans it, their phone offers to save your name, phone, email, company and website as a new contact.">
+  <meta property="og:url" content="https://ziaurrehmanjutt.github.io/diyaqr/create/vcard/">
+  <meta property="og:image" content="https://ziaurrehmanjutt.github.io/diyaqr/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/tool.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"DiyaQR free QR code generator","url":"https://ziaurrehmanjutt.github.io/diyaqr/create/vcard/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isPartOf":{"@type":"WebSite","name":"DiyaQR","url":"https://ziaurrehmanjutt.github.io/diyaqr/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a vCard?","acceptedAnswer":{"@type":"Answer","text":"A vCard is the standard file format for contact details. Phones read it directly from the QR code."}},{"@type":"Question","name":"Can I change the details later?","acceptedAnswer":{"@type":"Answer","text":"This is a static code, so changed details need a new code. Save the old one in your browser and edit it to produce the update."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DiyaQR","item":"https://ziaurrehmanjutt.github.io/diyaqr/"},{"@type":"ListItem","position":2,"name":"QR generator","item":"https://ziaurrehmanjutt.github.io/diyaqr/create/"},{"@type":"ListItem","position":3,"name":"vCard QR code generator","item":"https://ziaurrehmanjutt.github.io/diyaqr/create/vcard/"}]}</script>
+</head>
+<body>
+<header class="top solid">
+  <div class="wrap">
+    <a class="brand" href="../../"><img src="../../assets/icon-192.png" width="44" height="44" alt="DiyaQR"><span>DiyaQR</span></a>
+    <nav class="links"><a class="nav-link" href="../../create/">QR generator</a><a class="nav-link" href="https://play.google.com/store/apps/details?id=io.zia.diyaqr&hl=en" rel="noopener">Get the app</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">DiyaQR</a> › <a href="../../create/">QR generator</a> › vCard QR code generator</nav>
+  <section class="tool-hero">
+    <span class="k">A business card people can save in one tap</span>
+    <h1>vCard QR code generator</h1>
+    <p>Turn your contact details into a QR code. When someone scans it, their phone offers to save your name, phone, email, company and website as a new contact.</p>
+  </section>
+
+  <section class="gen" id="gen" data-type="vcard">
+    <div class="panel">
+      <h2>1. Content</h2>
+      <div id="types" role="group" aria-label="QR code type"></div>
+      <div id="fields"></div>
+
+      <h2 class="sub-h">2. Colors</h2>
+      <div class="sw" id="swatches" role="group" aria-label="Color styles"></div>
+      <div class="opts">
+        <label class="opt">Dots<input type="color" id="dotColor" value="#0b6b60"></label>
+        <label class="opt">Background<input type="color" id="bgColor" value="#ffffff"></label>
+        <label class="opt wide" style="flex-direction:row;align-items:center;gap:10px"><input type="checkbox" id="gradient"> Use a gradient</label>
+        <div class="opts wide" id="gradBox" style="grid-column:1/-1;margin:0" hidden>
+          <label class="opt">Second color<input type="color" id="dotColor2" value="#17a08c"></label>
+          <label class="opt">Gradient type<select id="gradType"><option value="linear" selected>Linear</option><option value="radial">Radial</option></select></label>
+        </div>
+      </div>
+
+      <h2 class="sub-h">3. Shape</h2>
+      <div class="opts">
+        <label class="opt">Dots<select id="dotType"><option value="rounded" selected>Rounded</option><option value="square">Square</option><option value="dots">Dots</option><option value="classy">Classy</option><option value="classy-rounded">Classy rounded</option><option value="extra-rounded">Extra rounded</option></select></label>
+        <label class="opt">Corner frame<select id="cornerType"><option value="extra-rounded" selected>Extra rounded</option><option value="square">Square</option><option value="dot">Circle</option><option value="rounded">Rounded</option><option value="dots">Dots</option><option value="classy">Classy</option><option value="classy-rounded">Classy rounded</option></select></label>
+        <label class="opt">Corner dot<select id="cornerDotType"><option value="dot" selected>Circle</option><option value="square">Square</option><option value="rounded">Rounded</option><option value="dots">Dots</option><option value="classy">Classy</option><option value="classy-rounded">Classy rounded</option><option value="extra-rounded">Extra rounded</option></select></label>
+        <label class="opt">Error correction<select id="ec"><option value="L">Low (7%)</option><option value="M">Medium (15%)</option><option value="Q" selected>Quartile (25%)</option><option value="H">High (30%)</option></select></label>
+        <label class="opt">Margin<input type="range" id="margin" min="0" max="40" value="10"></label>
+        <label class="opt">Size <output id="sizeOut"></output><input type="range" id="size" min="200" max="1000" step="20" value="400"></label>
+      </div>
+
+      <h2 class="sub-h">4. Logo (optional)</h2>
+      <div class="row" style="margin-top:0">
+        <label class="btn soft" style="cursor:pointer">Add logo<input type="file" id="logo" accept="image/*" hidden></label>
+        <span class="hint" id="logoName" style="align-self:center"></span>
+        <button type="button" class="btn ghost sm" id="logoClear" hidden>Remove</button>
+      </div>
+      <div class="opts" style="margin-top:12px"><label class="opt wide">Logo size<input type="range" id="logoSize" min="0.15" max="0.5" step="0.05" value="0.3"></label></div>
+    </div>
+
+    <div class="panel sticky" id="actions-panel">
+      <h2>Preview</h2>
+      <div id="preview" aria-live="polite"></div>
+      <p id="empty" hidden>Fill in the form to make your code.</p>
+      <p id="warn" hidden></p>
+      <div id="actions">
+        <div class="dl">
+          <button type="button" class="btn" id="dl-png">PNG</button>
+          <button type="button" class="btn" id="dl-svg">SVG</button>
+          <button type="button" class="btn soft" id="dl-jpeg">JPEG</button>
+          <button type="button" class="btn soft" id="dl-webp">WebP</button>
+        </div>
+        <div class="row"><button type="button" class="btn soft" id="copyImg">Copy image</button></div>
+        <div class="row"><input type="text" id="saveName" placeholder="Name to save (optional)" maxlength="60" aria-label="Name"><button type="button" class="btn" id="save">Save in browser</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:24px" id="mine">
+    <h2>My saved codes</h2>
+    <p class="hint" id="savedEmpty">Codes you save appear here. They are stored only in this browser, not on a server.</p>
+    <div id="saved"></div>
+    <div class="row" id="savedTools">
+      <button type="button" class="btn soft sm" id="exportSaved">Export backup</button>
+      <label class="btn soft sm" style="cursor:pointer">Import backup<input type="file" id="importSaved" accept="application/json,.json" hidden></label>
+      <button type="button" class="btn ghost sm" id="clearSaved">Delete all</button>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>How to make a vcard qr code</h2>
+    <ol><li>Fill in your name and the details you want to share.</li><li>Pick colors that match your brand and optionally add your logo.</li><li>Download the code and add it to your business card, email signature or badge.</li><li>Scan it to check that the contact saves correctly.</li></ol>
+    <h2>Questions</h2>
+    <div class="faq" style="margin-top:12px"><details><summary>What is a vCard?</summary><p>A vCard is the standard file format for contact details. Phones read it directly from the QR code.</p></details><details><summary>Can I change the details later?</summary><p>This is a static code, so changed details need a new code. Save the old one in your browser and edit it to produce the update.</p></details></div>
+    <h2>Other QR code types</h2>
+    <div class="more"><a href="../../create/">Free QR code</a><a href="../../create/wifi/">Wi-Fi QR code</a><a href="../../create/whatsapp/">WhatsApp QR code</a><a href="../../create/business-card/">QR code for business cards</a><a href="../../create/qr-code-with-logo/">QR code generator with logo</a><a href="../../create/restaurant-menu/">QR code for a restaurant menu</a><a href="../../create/url/">Link to QR code</a><a href="../../create/email/">Email QR code</a><a href="../../create/sms/">SMS QR code</a><a href="../../create/phone/">Phone number QR code</a><a href="../../create/location/">Location QR code</a><a href="../../create/event/">Event QR code</a><a href="../../create/text/">Text to QR code</a></div>
+  </section>
+
+  <section class="app-cta">
+    <h2>Make and scan QR codes on your phone</h2>
+    <p>The free DiyaQR app creates styled QR codes, scans codes and barcodes with your camera, and keeps your history private on your phone. No account.</p>
+    <a class="cta" href="https://play.google.com/store/apps/details?id=io.zia.diyaqr&hl=en" rel="noopener"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#00d2ff" d="M6 4.5v39c0 .9 1 1.4 1.7.9L28 24 7.7 3.6C7 3.1 6 3.6 6 4.5z"/><path fill="#00e676" d="M28 24 7.7 44.4c.2.1.4.1.6.1.3 0 .6-.1.9-.3l24.2-13.9L28 24z"/><path fill="#ffc400" d="m40.6 20.6-7.2-4.1L28 24l5.4 7.5 7.2-4.1c2.1-1.2 2.1-5.6 0-6.8z"/><path fill="#ff3d57" d="M7.7 3.6 28 24l5.4-7.5L9.2 2.6c-.3-.2-.6-.2-.9-.2-.2 0-.4.1-.6.2z"/></svg><span>Get it on Google Play</span></a>
+  </section>
+</main>
+
+<footer style="margin-top:50px">
+  <div class="wrap">
+    <span>© 2026 DiyaQR</span>
+    <span><a href="../../">Home</a> · <a href="../../policy.html">Privacy policy</a> · <a href="https://play.google.com/store/apps/details?id=io.zia.diyaqr&hl=en" rel="noopener">Google Play</a></span>
+  </div>
+</footer>
+<div id="toast" role="status"></div>
+<script src="../../assets/qr-code-styling.js"></script>
+<script src="../../assets/generator.js"></script>
+</body>
+</html>

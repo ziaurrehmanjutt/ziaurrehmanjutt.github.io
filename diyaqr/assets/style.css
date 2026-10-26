@@ -54,6 +54,11 @@ section.block h2{font-size:clamp(28px,3.6vw,40px);line-height:1.2;font-weight:80
 .band{padding:64px 0;color:#fff;text-align:center;background:linear-gradient(135deg,#0b6b60,#17a08c)}
 .band h2{color:#fff}.band p{max-width:40em;margin:14px auto 0;font-size:19px;color:rgba(255,255,255,.92)}
 .band .cta{margin-top:26px}
+.faq{max-width:780px;margin:34px auto 0;display:grid;gap:12px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{margin-top:10px;color:var(--muted)}
+.tool-band{background:linear-gradient(135deg,#084a43,#0b6b60)}
 footer{padding:34px 0;background:#0a1417;color:rgba(255,255,255,.75);font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between}
 footer a{text-decoration:none}footer a:hover{color:#fff;text-decoration:underline}
