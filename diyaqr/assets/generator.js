@@ -1,86 +1,88 @@
-/* DiyaQR web generator. Everything runs in the browser: nothing is uploaded, saved codes live in localStorage. */
+/* DiyaQR web generator. Everything runs in the browser: nothing is uploaded, saved codes live in localStorage.
+   All visible text comes from window.DIYAQR_I18N (written into each page by scripts/make-web-tools.mjs). */
 (function () {
   'use strict';
 
   var root = document.getElementById('gen');
   if (!root) return;
 
+  var I = window.DIYAQR_I18N || {};
+  function T(key, params) {
+    var s = I[key] != null ? I[key] : key;
+    if (params) Object.keys(params).forEach(function (k) { s = s.split('{' + k + '}').join(params[k]); });
+    return s;
+  }
+
   var TYPES = {
-    url: { label: 'Website', fields: [{ k: 'url', l: 'Link', p: 'https://example.com', t: 'url' }] },
-    text: { label: 'Text', fields: [{ k: 'text', l: 'Text', p: 'Write anything', t: 'textarea' }] },
+    url: { fields: [{ k: 'url', l: 'f_url', p: 'https://example.com', t: 'url' }] },
+    text: { fields: [{ k: 'text', l: 'f_text', p: 'p_text', pt: true, t: 'textarea' }] },
     wifi: {
-      label: 'Wi-Fi',
       fields: [
-        { k: 'ssid', l: 'Network name (SSID)', p: 'MyHomeWifi' },
-        { k: 'password', l: 'Password', p: 'Password', t: 'text' },
-        { k: 'security', l: 'Security', t: 'select', o: [['WPA', 'WPA / WPA2 / WPA3'], ['WEP', 'WEP'], ['nopass', 'No password']] },
-        { k: 'hidden', l: 'Hidden network', t: 'checkbox' },
+        { k: 'ssid', l: 'f_ssid', p: 'MyHomeWifi' },
+        { k: 'password', l: 'f_password', p: '••••••••', t: 'text' },
+        { k: 'security', l: 'f_security', t: 'select', o: [['WPA', 'WPA / WPA2 / WPA3'], ['WEP', 'WEP'], ['nopass', 'sec_none']] },
+        { k: 'hidden', l: 'f_hidden', t: 'checkbox' },
       ],
     },
     whatsapp: {
-      label: 'WhatsApp',
       fields: [
-        { k: 'phone', l: 'Phone number with country code', p: '923001234567', t: 'tel' },
-        { k: 'message', l: 'Message (optional)', p: 'Hello!', t: 'textarea' },
+        { k: 'phone', l: 'f_wa_phone', p: '923001234567', t: 'tel' },
+        { k: 'message', l: 'f_message_opt', t: 'textarea' },
       ],
     },
     vcard: {
-      label: 'Contact',
       fields: [
-        { k: 'first', l: 'First name' },
-        { k: 'last', l: 'Last name' },
-        { k: 'phone', l: 'Phone', t: 'tel' },
-        { k: 'email', l: 'Email', t: 'email' },
-        { k: 'org', l: 'Company' },
-        { k: 'title', l: 'Job title' },
-        { k: 'web', l: 'Website', t: 'url' },
-        { k: 'address', l: 'Address' },
+        { k: 'first', l: 'f_first' },
+        { k: 'last', l: 'f_last' },
+        { k: 'phone', l: 'f_phone', t: 'tel' },
+        { k: 'email', l: 'f_email', t: 'email' },
+        { k: 'org', l: 'f_org' },
+        { k: 'title', l: 'f_jobtitle' },
+        { k: 'web', l: 'f_web', t: 'url' },
+        { k: 'address', l: 'f_address' },
       ],
     },
     email: {
-      label: 'Email',
       fields: [
-        { k: 'to', l: 'To', p: 'name@example.com', t: 'email' },
-        { k: 'subject', l: 'Subject' },
-        { k: 'body', l: 'Message', t: 'textarea' },
+        { k: 'to', l: 'f_to', p: 'name@example.com', t: 'email' },
+        { k: 'subject', l: 'f_subject' },
+        { k: 'body', l: 'f_body', t: 'textarea' },
       ],
     },
     sms: {
-      label: 'SMS',
       fields: [
-        { k: 'phone', l: 'Phone number', t: 'tel' },
-        { k: 'message', l: 'Message', t: 'textarea' },
+        { k: 'phone', l: 'f_sms_phone', t: 'tel' },
+        { k: 'message', l: 'f_message', t: 'textarea' },
       ],
     },
-    phone: { label: 'Phone', fields: [{ k: 'phone', l: 'Phone number', p: '+923001234567', t: 'tel' }] },
+    phone: { fields: [{ k: 'phone', l: 'f_sms_phone', p: '+923001234567', t: 'tel' }] },
     location: {
-      label: 'Location',
       fields: [
-        { k: 'lat', l: 'Latitude', p: '24.7136' },
-        { k: 'lng', l: 'Longitude', p: '46.6753' },
+        { k: 'lat', l: 'f_lat', p: '24.7136' },
+        { k: 'lng', l: 'f_lng', p: '46.6753' },
       ],
       locate: true,
     },
     event: {
-      label: 'Event',
       fields: [
-        { k: 'title', l: 'Title' },
-        { k: 'start', l: 'Starts', t: 'datetime-local' },
-        { k: 'end', l: 'Ends', t: 'datetime-local' },
-        { k: 'place', l: 'Place' },
-        { k: 'notes', l: 'Notes', t: 'textarea' },
+        { k: 'title', l: 'f_title' },
+        { k: 'start', l: 'f_starts', t: 'datetime-local' },
+        { k: 'end', l: 'f_ends', t: 'datetime-local' },
+        { k: 'place', l: 'f_place' },
+        { k: 'notes', l: 'f_notes', t: 'textarea' },
       ],
     },
   };
+  function typeLabel(k) { return T('type_' + k); }
 
   var STYLES = [
-    ['Classic', '#000000', '#ffffff', ''],
-    ['Teal', '#0b6b60', '#ffffff', ''],
-    ['Ocean', '#0b3d91', '#ffffff', '#17a2d8'],
-    ['Sunset', '#d6336c', '#fff8f0', '#f59f00'],
-    ['Forest', '#1b5e20', '#f4fbf4', '#66bb6a'],
-    ['Night', '#ffffff', '#101820', ''],
-    ['Purple', '#5f3dc4', '#ffffff', '#cc5de8'],
+    ['style_classic', '#000000', '#ffffff', ''],
+    ['style_teal', '#0b6b60', '#ffffff', ''],
+    ['style_ocean', '#0b3d91', '#ffffff', '#17a2d8'],
+    ['style_sunset', '#d6336c', '#fff8f0', '#f59f00'],
+    ['style_forest', '#1b5e20', '#f4fbf4', '#66bb6a'],
+    ['style_night', '#ffffff', '#101820', ''],
+    ['style_purple', '#5f3dc4', '#ffffff', '#cc5de8'],
   ];
 
   var $ = function (id) { return document.getElementById(id); };
@@ -152,14 +154,16 @@
       var wrap = document.createElement('label');
       wrap.className = 'f' + (f.t === 'checkbox' ? ' check' : '');
       var name = document.createElement('span');
-      name.textContent = f.l;
+      name.textContent = T(f.l);
       var input;
       if (f.t === 'textarea') { input = document.createElement('textarea'); input.rows = 3; }
       else if (f.t === 'select') {
         input = document.createElement('select');
-        f.o.forEach(function (o) { var op = document.createElement('option'); op.value = o[0]; op.textContent = o[1]; input.appendChild(op); });
+        f.o.forEach(function (o) { var op = document.createElement('option'); op.value = o[0]; op.textContent = o[1].indexOf('sec_') === 0 ? T(o[1]) : o[1]; input.appendChild(op); });
       } else { input = document.createElement('input'); input.type = f.t || 'text'; }
-      if (f.p) input.placeholder = f.p;
+      if (f.p) input.placeholder = f.pt ? T(f.p) : f.p;
+      // Phone numbers, links and e-mail addresses are left-to-right even on right-to-left pages.
+      if (f.t === 'tel' || f.t === 'url' || f.t === 'email') input.dir = 'ltr';
       input.id = 'f-' + f.k;
       var current = state.values[state.type] && state.values[state.type][f.k];
       if (f.t === 'checkbox') input.checked = !!current; else if (current != null) input.value = current;
@@ -170,13 +174,13 @@
     });
     if (def.locate && navigator.geolocation) {
       var b = document.createElement('button');
-      b.type = 'button'; b.className = 'btn soft'; b.textContent = 'Use my current location';
+      b.type = 'button'; b.className = 'btn soft'; b.textContent = T('use_location');
       b.addEventListener('click', function () {
         navigator.geolocation.getCurrentPosition(function (p) {
           $('f-lat').value = p.coords.latitude.toFixed(6);
           $('f-lng').value = p.coords.longitude.toFixed(6);
           onField();
-        }, function () { toast('Location is not available'); });
+        }, function () { toast(T('location_unavailable')); });
       });
       box.appendChild(b);
     }
@@ -232,9 +236,9 @@
     var a = lum($('dotColor').value), b = lum($('bgColor').value);
     var ratio = (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
     var msgs = [];
-    if (ratio < 3) msgs.push('Low contrast: scanners may struggle. Use darker dots on a lighter background.');
-    if ($('gradient').checked && lum($('dotColor2').value) > 0.6 && b > 0.6) msgs.push('The light end of the gradient may be hard to scan on a light background.');
-    if (state.logo && $('ec').value === 'L') msgs.push('With a logo, use error correction Q or H.');
+    if (ratio < 3) msgs.push(T('warn_contrast'));
+    if ($('gradient').checked && lum($('dotColor2').value) > 0.6 && b > 0.6) msgs.push(T('warn_gradient'));
+    if (state.logo && $('ec').value === 'L') msgs.push(T('warn_logo_ec'));
     var el = $('warn');
     el.textContent = msgs.join(' ');
     el.hidden = !msgs.length;
@@ -252,12 +256,9 @@
   }
 
   // ---------- actions ----------
-  function fileName() {
-    var base = (state.type + '-qr').toLowerCase();
-    return base;
-  }
+  function fileName() { return (state.type + '-qr').toLowerCase(); }
   function download(ext) {
-    if (!qr || options().empty) { toast('Fill in the form first'); return; }
+    if (!qr || options().empty) { toast(T('toast_fill_first')); return; }
     qr.download({ name: fileName(), extension: ext });
   }
   function toast(msg) {
@@ -267,11 +268,11 @@
     toast.h = setTimeout(function () { t.classList.remove('show'); }, 2200);
   }
   function copyImage() {
-    if (!qr || options().empty) { toast('Fill in the form first'); return; }
-    if (!navigator.clipboard || !window.ClipboardItem) { toast('Copy is not supported in this browser'); return; }
+    if (!qr || options().empty) { toast(T('toast_fill_first')); return; }
+    if (!navigator.clipboard || !window.ClipboardItem) { toast(T('toast_copy_unsupported')); return; }
     qr.getRawData('png').then(function (blob) {
       return navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-    }).then(function () { toast('Image copied'); }, function () { toast('Copy failed'); });
+    }).then(function () { toast(T('toast_copied')); }, function () { toast(T('toast_copy_failed')); });
   }
 
   function getSettings() {
@@ -287,6 +288,7 @@
       if (el.type === 'checkbox') el.checked = !!s[k]; else el.value = s[k];
     });
     syncGradientUi();
+    $('sizeOut').textContent = $('size').value + ' px';
   }
 
   function thumb(cb) {
@@ -306,14 +308,14 @@
   }
 
   function saveCode() {
-    if (!qr || options().empty) { toast('Fill in the form first'); return; }
-    var name = ($('saveName').value || '').trim() || TYPES[state.type].label + ' QR';
+    if (!qr || options().empty) { toast(T('toast_fill_first')); return; }
+    var name = ($('saveName').value || '').trim() || T('default_name', { type: typeLabel(state.type) });
     thumb(function (img) {
       var list = load(SAVED_KEY, []);
       list.unshift({ id: String(Date.now()), name: name, type: state.type, values: state.values[state.type] || {}, settings: getSettings(), logo: state.logo, thumb: img, at: new Date().toISOString() });
-      if (!store(SAVED_KEY, list)) { list.shift(); toast('Storage is full. Delete some saved codes or remove the logo.'); return; }
+      if (!store(SAVED_KEY, list)) { list.shift(); toast(T('toast_storage_full')); return; }
       $('saveName').value = '';
-      toast('Saved in this browser');
+      toast(T('toast_saved'));
       renderSaved();
     });
   }
@@ -331,9 +333,10 @@
       var info = document.createElement('div');
       info.className = 'sv-i';
       var n = document.createElement('strong'); n.textContent = item.name;
-      var m = document.createElement('small'); m.textContent = (TYPES[item.type] ? TYPES[item.type].label : item.type) + ' · ' + new Date(item.at).toLocaleDateString();
+      var m = document.createElement('small');
+      m.textContent = (TYPES[item.type] ? typeLabel(item.type) : item.type) + ' · ' + new Date(item.at).toLocaleDateString(document.documentElement.lang || undefined);
       info.appendChild(n); info.appendChild(m);
-      var openB = document.createElement('button'); openB.type = 'button'; openB.className = 'btn soft sm'; openB.textContent = 'Edit';
+      var openB = document.createElement('button'); openB.type = 'button'; openB.className = 'btn soft sm'; openB.textContent = T('edit');
       openB.addEventListener('click', function () {
         state.type = TYPES[item.type] ? item.type : 'url';
         state.values[state.type] = item.values;
@@ -342,7 +345,7 @@
         buildForm(); render(); updateLogoUi();
         window.scrollTo({ top: root.offsetTop - 20, behavior: 'smooth' });
       });
-      var del = document.createElement('button'); del.type = 'button'; del.className = 'btn ghost sm'; del.textContent = 'Delete';
+      var del = document.createElement('button'); del.type = 'button'; del.className = 'btn ghost sm'; del.textContent = T('delete');
       del.addEventListener('click', function () {
         store(SAVED_KEY, load(SAVED_KEY, []).filter(function (x) { return x.id !== item.id; }));
         renderSaved();
@@ -368,20 +371,19 @@
         var list = load(SAVED_KEY, []);
         var ids = {}; list.forEach(function (x) { ids[x.id] = 1; });
         data.codes.forEach(function (c) { if (c && c.id && c.type && !ids[c.id]) list.push(c); });
-        store(SAVED_KEY, list); renderSaved(); toast('Imported');
-      } catch (e) { toast('That file is not a DiyaQR backup'); }
+        store(SAVED_KEY, list); renderSaved(); toast(T('toast_imported'));
+      } catch (e) { toast(T('toast_bad_file')); }
     };
     fr.readAsText(file);
   }
 
   function updateLogoUi() {
-    $('logoName').textContent = state.logo ? 'Logo added' : 'No logo';
+    $('logoName').textContent = state.logo ? T('logo_added') : T('no_logo');
     $('logoClear').hidden = !state.logo;
   }
 
   function syncGradientUi() {
-    var on = $('gradient').checked;
-    $('gradBox').hidden = !on;
+    $('gradBox').hidden = !$('gradient').checked;
   }
 
   // ---------- init ----------
@@ -390,7 +392,7 @@
     var types = $('types');
     Object.keys(TYPES).forEach(function (k) {
       var b = document.createElement('button');
-      b.type = 'button'; b.setAttribute('data-type', k); b.textContent = TYPES[k].label;
+      b.type = 'button'; b.setAttribute('data-type', k); b.textContent = typeLabel(k);
       b.addEventListener('click', function () {
         state.type = k; buildForm(); render();
       });
@@ -399,7 +401,7 @@
     var sw = $('swatches');
     STYLES.forEach(function (s) {
       var b = document.createElement('button');
-      b.type = 'button'; b.title = s[0]; b.setAttribute('aria-label', s[0]);
+      b.type = 'button'; b.title = T(s[0]); b.setAttribute('aria-label', T(s[0]));
       b.style.background = s[3] ? 'linear-gradient(135deg,' + s[1] + ',' + s[3] + ')' : s[1];
       b.style.outline = '3px solid ' + s[2]; b.style.outlineOffset = '-6px';
       b.addEventListener('click', function () {
@@ -444,7 +446,7 @@
     $('exportSaved').addEventListener('click', exportSaved);
     $('importSaved').addEventListener('change', function (e) { if (e.target.files[0]) importSaved(e.target.files[0]); e.target.value = ''; });
     $('clearSaved').addEventListener('click', function () {
-      if (confirm('Delete all saved codes from this browser?')) { store(SAVED_KEY, []); renderSaved(); }
+      if (confirm(T('confirm_delete_all'))) { store(SAVED_KEY, []); renderSaved(); }
     });
     $('sizeOut').textContent = $('size').value + ' px';
     syncGradientUi(); updateLogoUi(); buildForm(); renderSaved();

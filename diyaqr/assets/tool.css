@@ -53,4 +53,5 @@ header.top.solid{position:static;padding:14px 0;background:linear-gradient(135de
 .app-cta{margin:40px auto 0;max-width:780px;padding:26px;border-radius:var(--radius);background:linear-gradient(135deg,#0b6b60,#17a08c);color:#fff;text-align:center}
 .app-cta h2{color:#fff;font-size:24px;margin:0 0 8px;text-align:center}.app-cta p{color:rgba(255,255,255,.92)}
 .app-cta .cta{margin-top:18px}
+.langs-foot{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}.langs-foot a{text-decoration:none;opacity:.8}.langs-foot a[aria-current]{opacity:1;font-weight:700}
 @media (max-width:900px){.gen{grid-template-columns:1fr}.sticky{position:static}.dl{grid-template-columns:repeat(2,1fr)}.sv{grid-template-columns:56px 1fr;}.sv img{width:56px;height:56px}.sv .btn{grid-column:auto}}
