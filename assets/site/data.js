@@ -118,6 +118,15 @@ window.SITE = {
       links: { live: "diyaqr/" }
     },
     {
+      title: "Diya Expense",
+      category: "mobile",
+      featured: true,
+      year: "2026",
+      description: "Private, offline budget and expense tracker. Budgets, savings goals, loans, invoices, installments, recurring reminders, receipt photos and CSV export. No account, no ads. Landing pages in 12 languages.",
+      tags: ["Ionic", "Angular", "Android", "SQLite"],
+      links: { live: "diyaexpense/" }
+    },
+    {
       title: "QR Code Generator",
       category: "mobile",
       description: "An Ionic mobile app for managing and generating QR codes.",
