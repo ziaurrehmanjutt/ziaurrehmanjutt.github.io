@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ng-spinner-wheel — Angular Spinner Wheel Component | Zia Ur Rehman</title>
+  <meta name="description" content="ng-spinner-wheel is a lightweight, standalone Angular spinner wheel with weighted items. Canvas-based, works with Angular 18–22 and Ionic. Install from npm, try the live demo.">
+  <meta name="theme-color" content="#0b1018">
+  <link rel="canonical" href="https://ziaurrehmanjutt.github.io/ng-spinner-wheel/">
+  <link rel="icon" type="image/svg+xml" href="../assets/site/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ng-spinner-wheel — Angular Spinner Wheel Component">
+  <meta property="og:description" content="Lightweight standalone Angular spinner wheel with weighted items, for raffles, lucky draws and prize wheels.">
+  <meta property="og:url" content="https://ziaurrehmanjutt.github.io/ng-spinner-wheel/">
+  <script>
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t);
+      else if (matchMedia("(prefers-color-scheme: light)").matches) document.documentElement.setAttribute("data-theme", "light"); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site/site.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"ng-spinner-wheel","description":"Lightweight, customizable standalone Angular spinner wheel with weighted items.","programmingLanguage":"TypeScript","runtimePlatform":"Angular","license":"https://opensource.org/licenses/MIT","codeRepository":"https://github.com/ziaurrehmanjutt/ng-spinner-lib","url":"https://ziaurrehmanjutt.github.io/ng-spinner-wheel/","author":{"@type":"Person","name":"Zia Ur Rehman","url":"https://ziaurrehmanjutt.github.io/"}}
+  </script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="../" aria-label="Zia Ur Rehman, home"><span class="brand-mark">ZR</span>Zia Ur Rehman</a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#usage">Usage</a>
+        <a href="#api">API</a>
+        <a href="../#projects">All projects</a>
+        <a href="../resume.html">Resume</a>
+      </nav>
+      <div style="display:flex;gap:.5rem">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light/dark theme">◐</button>
+        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="pkg-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="../">Home</a> / <a href="../#projects">Projects</a> / ng-spinner-wheel</div>
+        <div class="pkg-grid">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Open source · MIT · Angular 18–22</span>
+            <h1>ng-spinner-wheel <span class="grad">for Angular.</span></h1>
+            <p class="lead">A lightweight, customizable, standalone spinner wheel with weighted items. Built for raffles, lucky draws, prize wheels and gamified selections. Works in Ionic too.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://ng-spinner-wheel.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+              <a class="btn btn-ghost" href="https://www.npmjs.com/package/ng-spinner-wheel" target="_blank" rel="noopener noreferrer">npm package ↗</a>
+              <a class="btn btn-ghost" href="https://github.com/ziaurrehmanjutt/ng-spinner-lib" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="wheel-wrap" aria-hidden="true"><div class="wheel-art"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="features" class="alt">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Why use it</span><h2>Features</h2></div></div>
+        <div class="feat-grid">
+          <div class="feat"><h3>Standalone component</h3><p>No NgModule needed. Import it straight into your component's <span class="inline-code">imports</span>.</p></div>
+          <div class="feat"><h3>Weighted slices</h3><p>Heavier items get bigger slices and a higher chance of winning.</p></div>
+          <div class="feat"><h3>Canvas rendering</h3><p>Sharp on high-DPI screens, with no external image assets.</p></div>
+          <div class="feat"><h3>Angular 18 – 22</h3><p>Compatible with current Angular releases and usable inside Ionic apps.</p></div>
+          <div class="feat"><h3>Customizable</h3><p>Per-item colors, text color, font size, custom spin button image, and spin duration.</p></div>
+          <div class="feat"><h3>Programmatic control</h3><p>Start, stop early, or regenerate the wheel from code, and listen for the winner.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Get started</span><h2>Install</h2></div></div>
+        <div class="codeblock"><div class="code-bar"><i></i><i></i><i></i><span>terminal</span></div>
+<pre>npm install ng-spinner-wheel</pre></div>
+        <p class="empty-hint">Package page: <a href="https://www.npmjs.com/package/ng-spinner-wheel" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">npmjs.com/package/ng-spinner-wheel ↗</a></p>
+      </div>
+    </section>
+
+    <section id="usage" class="alt">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Example</span><h2>Usage</h2></div></div>
+        <div class="codeblock"><div class="code-bar"><i></i><i></i><i></i><span>app.component.ts</span></div>
+<pre><span class="k">import</span> { Component, ViewChild } <span class="k">from</span> <span class="s">'@angular/core'</span>;
+<span class="k">import</span> { MenuItems, NgSpinnerWheelComponent } <span class="k">from</span> <span class="s">'ng-spinner-wheel'</span>;
+
+@Component({
+  selector: <span class="s">'app-root'</span>,
+  imports: [NgSpinnerWheelComponent],
+  templateUrl: <span class="s">'./app.component.html'</span>
+})
+<span class="k">export class</span> AppComponent {
+  allItems: MenuItems[] = [
+    { menuTitle: <span class="s">'Gold'</span> },
+    { menuTitle: <span class="s">'Dark'</span>, menuWeight: 2, id: <span class="s">'ABC'</span> },
+    { menuTitle: <span class="s">'Silver'</span>, menuWeight: 2, backColor: <span class="s">'#C0C0C0'</span>, textColor: <span class="s">'#FFFFFF'</span>, fontSize: <span class="s">'12px'</span> },
+  ];
+
+  @ViewChild(<span class="s">'spinner'</span>) spinner!: NgSpinnerWheelComponent;
+
+  onSpinCompleted(item: MenuItems) {
+    console.log(<span class="s">'Winner:'</span>, item);
+  }
+}</pre></div>
+        <div class="codeblock"><div class="code-bar"><i></i><i></i><i></i><span>app.component.html</span></div>
+<pre>&lt;lib-ng-spinner-wheel
+  #spinner
+  [allItems]="allItems"
+  [width]="300"
+  [btnWidth]="60"
+  (spinCompleted)="onSpinCompleted($event)"&gt;
+&lt;/lib-ng-spinner-wheel&gt;</pre></div>
+        <div class="note">The wheel redraws when you assign a new <span class="inline-code">allItems</span> array or change <span class="inline-code">width</span>. It does not detect in-place changes like <span class="inline-code">push()</span>, so assign a new array or call <span class="inline-code">regenerate()</span>. The pointer sits at the top of the wheel; supply your own marker there.</div>
+      </div>
+    </section>
+
+    <section id="api">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Reference</span><h2>API</h2></div></div>
+
+        <h3 style="margin-bottom:.9rem">Inputs</h3>
+        <div class="tbl-wrap"><table class="tbl">
+          <thead><tr><th>Input</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>allItems</code></td><td>MenuItems[]</td><td>[]</td><td>Items on the wheel.</td></tr>
+            <tr><td><code>width</code></td><td>number</td><td>260</td><td>Wheel diameter in px.</td></tr>
+            <tr><td><code>btnWidth</code></td><td>number</td><td>30</td><td>Spin button diameter in px.</td></tr>
+            <tr><td><code>btnImage</code></td><td>string</td><td>–</td><td>Image URL for the spin button. A built-in "SPIN" button is used if omitted.</td></tr>
+            <tr><td><code>shuffle</code></td><td>boolean</td><td>true</td><td>Shuffle slice order when items change.</td></tr>
+            <tr><td><code>minSpinTime</code></td><td>number</td><td>5000</td><td>Minimum ms before the wheel starts slowing down.</td></tr>
+            <tr><td><code>maxSpinTime</code></td><td>number</td><td>8500</td><td>Maximum ms before the wheel starts slowing down.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3 style="margin:2rem 0 .9rem">MenuItems</h3>
+        <div class="tbl-wrap"><table class="tbl">
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>menuTitle</code></td><td>string</td><td>Label. Use \n for multiple lines.</td></tr>
+            <tr><td><code>id</code></td><td>string?</td><td>Your own identifier (<code>Id</code> is also accepted).</td></tr>
+            <tr><td><code>menuWeight</code></td><td>number?</td><td>Relative weight, default 1.</td></tr>
+            <tr><td><code>backColor</code></td><td>string?</td><td>Slice color, random if omitted.</td></tr>
+            <tr><td><code>textColor</code></td><td>string?</td><td>Label color, auto-contrast if omitted.</td></tr>
+            <tr><td><code>fontSize</code></td><td>string?</td><td>For example '14px', default '15px'.</td></tr>
+            <tr><td><code>percentage</code></td><td>number?</td><td>Computed by the wheel.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3 style="margin:2rem 0 .9rem">Outputs &amp; methods</h3>
+        <div class="tbl-wrap"><table class="tbl">
+          <thead><tr><th>Name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>(spinCompleted)</code></td><td>Emits the winning <code>MenuItems</code> item when the wheel stops.</td></tr>
+            <tr><td><code>startSpin()</code></td><td>Start spinning programmatically, same as clicking the button.</td></tr>
+            <tr><td><code>stops()</code></td><td>Start slowing the wheel down early.</td></tr>
+            <tr><td><code>regenerate()</code></td><td>Reinitialize the wheel from the current inputs.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section id="links" class="alt">
+      <div class="wrap">
+        <div class="contact-box">
+          <span class="eyebrow">Try it</span>
+          <h2>See it spin.</h2>
+          <p>Open the live demo, grab the package from npm, or read the source and contribute on GitHub.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://ng-spinner-wheel.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+            <a class="btn btn-ghost" href="https://www.npmjs.com/package/ng-spinner-wheel" target="_blank" rel="noopener noreferrer">npm ↗</a>
+            <a class="btn btn-ghost" href="https://github.com/ziaurrehmanjutt/ng-spinner-lib" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Zia Ur Rehman · MIT licensed</span>
+      <a href="../">← Back to portfolio</a>
+    </div>
+  </footer>
+
+  <script src="../assets/site/data.js"></script>
+  <script src="../assets/site/site.js"></script>
+</body>
+</html>

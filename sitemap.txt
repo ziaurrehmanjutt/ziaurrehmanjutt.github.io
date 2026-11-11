@@ -194,3 +194,4 @@ https://ziaurrehmanjutt.github.io/diyaexpense/bn/
 https://ziaurrehmanjutt.github.io/diyaexpense/fil/
 https://ziaurrehmanjutt.github.io/diyaexpense/fa/
 https://ziaurrehmanjutt.github.io/diyaexpense/policy.html
+https://ziaurrehmanjutt.github.io/ng-spinner-wheel/

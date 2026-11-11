@@ -57,6 +57,8 @@
         .map(function (p) {
           var l = p.links || {}, a = "";
           if (l.live) a += '<a href="' + esc(l.live) + '"' + ext(l.live) + ">Open ↗</a>";
+          if (l.demo) a += '<a href="' + esc(l.demo) + '"' + ext(l.demo) + ">Live demo ↗</a>";
+          if (l.npm) a += '<a href="' + esc(l.npm) + '"' + ext(l.npm) + ">npm ↗</a>";
           if (l.code) a += '<a href="' + esc(l.code) + '"' + ext(l.code) + ">Source ↗</a>";
           return '<article class="project reveal in' + (p.featured ? " featured" : "") + '">' +
             '<div class="meta"><span>' + esc(p.category) + (p.year ? " · " + esc(p.year) : "") + "</span>" +

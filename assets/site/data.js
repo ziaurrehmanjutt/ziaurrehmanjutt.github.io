@@ -127,6 +127,15 @@ window.SITE = {
       links: { live: "diyaexpense/" }
     },
     {
+      title: "ng-spinner-wheel",
+      category: "tool",
+      featured: true,
+      year: "2026",
+      description: "Open-source Angular library: a lightweight, standalone spinner wheel with weighted items for raffles, lucky draws and prize wheels. Canvas-based, Angular 18-22, works in Ionic. Published on npm.",
+      tags: ["Angular", "TypeScript", "npm", "Open source"],
+      links: { live: "ng-spinner-wheel/", demo: "https://ng-spinner-wheel.netlify.app/", npm: "https://www.npmjs.com/package/ng-spinner-wheel", code: "https://github.com/ziaurrehmanjutt/ng-spinner-lib" }
+    },
+    {
       title: "QR Code Generator",
       category: "mobile",
       description: "An Ionic mobile app for managing and generating QR codes.",
