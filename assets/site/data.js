@@ -16,6 +16,20 @@ window.SITE = {
     "Specialized in Microsoft Dynamics 365 Finance & Operations (X++), PHP/Laravel, and cross-platform mobile apps with Ionic and Angular. " +
     "Experienced in system integrations, cloud deployment, performance optimization, and the full software development lifecycle.",
 
+  /* Services shown on the homepage. Edit text here; icon is any emoji. */
+  whatsapp: "966500256094",          // digits only, used for the WhatsApp button
+  services: [
+    { slug: "seo", icon: "🔎", title: "SEO for your website", text: "Technical SEO, on-page fixes, schema markup, sitemaps, speed and Core Web Vitals, multilingual SEO. Get found on Google.", tags: ["Technical SEO", "Schema", "Speed"] },
+    { slug: "security-audit", icon: "🛡️", title: "Website security audit (OWASP Top 10)", text: "Review of your site against the OWASP Top 10: injection, broken auth and access control, XSS, misconfiguration, outdated components. You get a clear report with prioritized fixes.", tags: ["OWASP Top 10", "Report", "Fixes"] },
+    { slug: "ai-automation", icon: "🤖", title: "AI automation for everyone", text: "Automate repetitive work with AI: chatbots, document and email processing, data entry, reports and workflow automation, for individuals and businesses of any size.", tags: ["Chatbots", "Workflows", "LLMs"] },
+    { slug: "api-integration", icon: "🔌", title: "API integration", text: "Connect your systems: REST and GraphQL APIs, payments (Stripe, PayPal), QuickBooks, Google Maps, social login, ERP and eCommerce sync.", tags: ["REST", "GraphQL", "Payments"] },
+    { slug: "mobile-app-for-website", icon: "📱", title: "Mobile app for any website", text: "Turn your website or web app into a native Android and iOS app with Ionic and Capacitor, including push notifications, offline mode and Play Store / App Store publishing.", tags: ["Android", "iOS", "Ionic"] },
+    { slug: "web-development", icon: "💻", title: "Custom websites & web apps", text: "Fast, secure, maintainable web applications with Laravel, PHP, Angular and WordPress: dashboards, portals, booking, admin panels.", tags: ["Laravel", "Angular", "WordPress"] },
+    { slug: "erp-dynamics-365", icon: "🏢", title: "ERP & Dynamics 365 F&O", text: "X++ customization, SSRS reports, Power BI dashboards, integrations and deployments for Dynamics 365 Finance & Operations; Dolibarr and Magento too.", tags: ["X++", "SSRS", "Power BI"] },
+    { slug: "performance-hosting", icon: "⚡", title: "Performance & hosting", text: "Server setup, deployment, SSL, backups, Azure / AWS / Linux / IIS, and speed tuning so your site stays fast and online.", tags: ["Azure", "AWS", "SSL"] },
+    { slug: "maintenance-support", icon: "🧰", title: "Maintenance & support", text: "Bug fixes, updates, monitoring and ongoing support for existing websites and apps, so you don't have to worry about them.", tags: ["Bug fixes", "Updates", "Support"] }
+  ],
+
   stats: [
     { value: "6+", label: "Years building software" },
     { value: "10+", label: "Android apps published" },

@@ -46,6 +46,19 @@
       g.items.map(function (i) { return '<span class="chip">' + esc(i) + "</span>"; }).join("") + "</div></div>";
   }).join("");
 
+  /* services + call buttons */
+  var svc = $("services-grid");
+  if (svc) svc.innerHTML = S.services.map(function (v) {
+    return '<article class="service reveal"><div class="s-icon" aria-hidden="true">' + esc(v.icon) + "</div><h3>" + esc(v.title) + "</h3><p>" + esc(v.text) + "</p>" +
+      '<div class="chips">' + (v.tags || []).map(function (t) { return '<span class="chip">' + esc(t) + "</span>"; }).join("") + '</div><a class="s-link" href="services/' + esc(v.slug) + '/">Details &amp; pricing →</a></article>';
+  }).join("");
+  var tel = S.phone.replace(/[^\d+]/g, "");
+  [].forEach.call(document.querySelectorAll("[data-call]"), function (a) { a.href = "tel:" + tel; });
+  [].forEach.call(document.querySelectorAll("[data-whatsapp]"), function (a) {
+    a.href = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent("Hi Zia, I'm interested in your services.");
+  });
+  [].forEach.call(document.querySelectorAll("[data-phone-text]"), function (a) { a.textContent = S.phone; });
+
   /* projects + filters */
   var grid = $("projects-grid");
   if (grid) {

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website security audit (OWASP Top 10) | Zia Ur Rehman</title>
+  <meta name="description" content="Website security audit against the OWASP Top 10: injection, broken access control, XSS, misconfiguration and more. Clear report with prioritized fixes. Scope, process and pricing explained.">
+  <meta name="theme-color" content="#0b1018">
+  <link rel="canonical" href="https://ziaurrehmanjutt.github.io/services/security-audit/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/site/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Website security audit (OWASP Top 10) | Zia Ur Rehman">
+  <meta property="og:description" content="Website security audit against the OWASP Top 10: injection, broken access control, XSS, misconfiguration and more. Clear report with prioritized fixes. Scope, process and pricing explained.">
+  <meta property="og:url" content="https://ziaurrehmanjutt.github.io/services/security-audit/">
+  <script>
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t);
+      else if (matchMedia("(prefers-color-scheme: light)").matches) document.documentElement.setAttribute("data-theme", "light"); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/site/site.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Website security audit (OWASP Top 10)", "description": "Website security audit against the OWASP Top 10: injection, broken access control, XSS, misconfiguration and more. Clear report with prioritized fixes. Scope, process and pricing explained.", "url": "https://ziaurrehmanjutt.github.io/services/security-audit/", "areaServed": "Worldwide", "provider": {"@type": "Person", "name": "Zia Ur Rehman", "url": "https://ziaurrehmanjutt.github.io/", "telephone": "+966 500256094", "email": "ziaa520@gmail.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it safe for my live website?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I avoid destructive tests on production, and for riskier checks I suggest a staging copy."}}, {"@type": "Question", "name": "Do you guarantee my site can't be hacked?", "acceptedAnswer": {"@type": "Answer", "text": "No one can. An audit greatly reduces risk by closing known weaknesses, but security is ongoing work."}}, {"@type": "Question", "name": "Will you test any website I name?", "acceptedAnswer": {"@type": "Answer", "text": "No. I only test sites you own or have written permission to test."}}]}</script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="../../" aria-label="Zia Ur Rehman, home"><span class="brand-mark">ZR</span>Zia Ur Rehman</a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="../../#services">All services</a>
+        <a href="../../#projects">Projects</a>
+        <a href="../../resume.html">Resume</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+      <div style="display:flex;gap:.5rem">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light/dark theme">◐</button>
+        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="pkg-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="../../">Home</a> / <a href="../../#services">Services</a> / Security Audit</div>
+        <div style="max-width:46rem;position:relative">
+          <div class="s-icon" aria-hidden="true" style="margin-bottom:1rem">🛡️</div>
+          <h1>Website security audit (OWASP Top 10)</h1>
+          <p class="lead">Find the holes in your website before someone else does.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+966500256094">📞 Call +966 500256094</a>
+            <a class="btn btn-ghost" href="https://wa.me/966500256094?text=Hi%20Zia%2C%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+            <a class="btn btn-ghost" href="mailto:ziaa520@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="alt">
+      <div class="wrap about">
+        <div><span class="eyebrow">Overview</span><h2>What this is</h2></div>
+        <div>
+          <p>I review your website or web application against the OWASP Top 10, the industry standard list of the most serious web risks. You receive a plain-language report that explains each finding, how serious it is, and exactly how to fix it. I can also apply the fixes.</p>
+          <p><b style="color:var(--text)">Who it's for:</b> Owners of websites that handle logins, payments or customer data, companies preparing for a client or compliance review, and anyone who suspects their site was hacked or is running old software.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Scope</span><h2>What you get</h2></div></div>
+        <ul class="pts check">
+          <li>Check against the OWASP Top 10: broken access control, injection (SQL and others), XSS, insecure design, security misconfiguration, vulnerable and outdated components, authentication failures, integrity failures, logging gaps, SSRF</li>
+          <li>Review of login, session, password reset and permission logic</li>
+          <li>Server and HTTPS checks: SSL/TLS setup, security headers, exposed files, open admin panels</li>
+          <li>Dependency and plugin review for known vulnerabilities</li>
+          <li>Written report: each finding with severity, evidence, and a concrete fix</li>
+          <li>Optional: I implement the fixes and re-test to confirm they are closed</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Process</span><h2>How it works</h2></div></div>
+        <div class="feat-grid">
+          <div class="feat"><div class="step-n">1</div><h3>Agree scope</h3><p>We confirm exactly which site, app or API I may test. I only test systems you own or are authorized to give me access to.</p></div>
+          <div class="feat"><div class="step-n">2</div><h3>Test</h3><p>Manual review and tooling against the OWASP Top 10, careful not to disrupt your live site.</p></div>
+          <div class="feat"><div class="step-n">3</div><h3>Report</h3><p>You get a prioritized report in plain language, with fixes, not just a list of tool output.</p></div>
+          <div class="feat"><div class="step-n">4</div><h3>Fix &amp; re-test</h3><p>Optionally I apply the fixes and re-test so you know the issues are really closed.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Cost</span><h2>Pricing &amp; what affects it</h2></div></div>
+        <p class="lead" style="max-width:48rem">Every project is different, so I quote per project instead of using a one-size price list. Tell me what you need and I'll reply with a fixed price or a clear estimate, so there are no surprises. Typical engagement types:</p>
+        <div class="price-grid">
+          <div class="price-card"><h3>Quick check</h3><div class="price">Custom quote</div><p>Outside-in scan and review for the most common issues on a small site, with a short report.</p>
+            <a class="btn btn-ghost" href="mailto:ziaa520@gmail.com?subject=Security Audit%20-%20Quick check">Ask for a quote</a></div>
+          <div class="price-card"><h3>Full OWASP audit</h3><div class="price">Custom quote</div><p>In-depth test against all ten categories with a detailed report and fix guidance.</p>
+            <a class="btn btn-ghost" href="mailto:ziaa520@gmail.com?subject=Security Audit%20-%20Full OWASP audit">Ask for a quote</a></div>
+          <div class="price-card"><h3>Audit + remediation</h3><div class="price">Custom quote</div><p>Full audit, I fix the issues in your code or server, then re-test.</p>
+            <a class="btn btn-ghost" href="mailto:ziaa520@gmail.com?subject=Security Audit%20-%20Audit + remediation">Ask for a quote</a></div>
+        </div>
+        <h3 style="margin:2.2rem 0 .8rem">What affects the cost</h3>
+        <ul class="pts">
+          <li>Size and complexity: number of pages, user roles, forms and API endpoints</li>
+          <li>Whether I get access to the source code (deeper and cheaper) or test only from outside</li>
+          <li>Type of app: brochure site, store with payments, or custom application</li>
+          <li>Whether you want the fixes implemented, or just the report</li>
+          <li>A re-test after fixes</li>
+        </ul>
+        <div class="note">Third-party costs (hosting, domains, app store fees, API or AI usage, paid plugins) are paid by you directly to those providers and are not part of my fee.</div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap">
+        <div class="sec-head"><div><span class="eyebrow">Questions</span><h2>FAQ</h2></div></div>
+        <div class="faq-list">
+          <details class="faq"><summary>Is it safe for my live website?</summary><p>Yes. I avoid destructive tests on production, and for riskier checks I suggest a staging copy.</p></details>
+          <details class="faq"><summary>Do you guarantee my site can&#x27;t be hacked?</summary><p>No one can. An audit greatly reduces risk by closing known weaknesses, but security is ongoing work.</p></details>
+          <details class="faq"><summary>Will you test any website I name?</summary><p>No. I only test sites you own or have written permission to test.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="contact-box">
+          <span class="eyebrow">Get started</span>
+          <h2>Let's talk about your project.</h2>
+          <p>Call, message on WhatsApp or email me with a short description. I'll reply with questions and a quote.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+966500256094">📞 Call +966 500256094</a>
+            <a class="btn btn-ghost" href="https://wa.me/966500256094?text=Hi%20Zia%2C%20I'm%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+            <a class="btn btn-ghost" href="mailto:ziaa520@gmail.com">Email</a>
+          </div>
+        </div>
+        <h3 style="margin:2.5rem 0 .8rem">Other services</h3>
+        <div class="chips">
+          <a class="chip" href="../seo/">🔎 SEO Services</a>
+          <a class="chip" href="../ai-automation/">🤖 AI Automation</a>
+          <a class="chip" href="../api-integration/">🔌 API Integration</a>
+          <a class="chip" href="../mobile-app-for-website/">📱 Mobile App for Your Website</a>
+          <a class="chip" href="../web-development/">💻 Web Development</a>
+          <a class="chip" href="../erp-dynamics-365/">🏢 ERP &amp; Dynamics 365</a>
+          <a class="chip" href="../performance-hosting/">⚡ Performance &amp; Hosting</a>
+          <a class="chip" href="../maintenance-support/">🧰 Maintenance &amp; Support</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Zia Ur Rehman · Riyadh, Saudi Arabia</span>
+      <a href="../../">← Back to portfolio</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/site/data.js"></script>
+  <script src="../../assets/site/site.js"></script>
+</body>
+</html>

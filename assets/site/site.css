@@ -220,3 +220,27 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .tbl code, .inline-code { font: 500 .82rem var(--mono); color: var(--accent-2); }
 .note { border-left: 3px solid var(--accent); background: var(--bg-2); padding: .9rem 1.1rem; border-radius: 0 12px 12px 0; color: var(--muted); font-size: .93rem; margin-top: 1.2rem; }
 @media (max-width: 800px) { .pkg-grid { grid-template-columns: 1fr; } }
+
+/* ---------- services ---------- */
+.services { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; }
+.service { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem; display: flex; flex-direction: column; gap: .8rem; transition: transform .2s, border-color .2s, box-shadow .2s; }
+.service:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 24px 40px -28px var(--glow); }
+.service p { margin: 0; color: var(--muted); font-size: .95rem; flex: 1; }
+.s-icon { width: 46px; height: 46px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--line); display: grid; place-items: center; font-size: 1.4rem; }
+
+/* ---------- service pages ---------- */
+.step-n { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 700 .85rem var(--display); margin-bottom: .8rem; }
+ul.pts.check { list-style: none; padding: 0; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: .8rem 2rem; font-size: 1rem; }
+ul.pts.check li { position: relative; padding-left: 1.8rem; color: var(--text); }
+ul.pts.check li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.8rem; }
+.price-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem; display: flex; flex-direction: column; gap: .7rem; }
+.price-card p { margin: 0; color: var(--muted); font-size: .93rem; flex: 1; }
+.price { font: 700 1.5rem var(--display); color: var(--accent); letter-spacing: -.02em; }
+.faq-list { display: grid; gap: .8rem; max-width: 50rem; }
+.faq { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.2rem; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq p { margin: .7rem 0 0; color: var(--muted); font-size: .95rem; }
+a.chip:hover { border-color: var(--accent); }
+.s-link { font-weight: 600; font-size: .9rem; color: var(--accent); }
+.s-link:hover { text-decoration: underline; text-underline-offset: 4px; }
