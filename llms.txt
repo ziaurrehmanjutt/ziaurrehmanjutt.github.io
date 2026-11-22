@@ -1,0 +1,35 @@
+# Zia Ur Rehman
+
+> Senior Software Developer. Enterprise ERP, full-stack web & cross-platform mobile. Based in Riyadh, Saudi Arabia.
+
+Software developer with 6+ years of experience delivering enterprise ERP, web, and mobile solutions. Specialized in Microsoft Dynamics 365 Finance & Operations (X++), PHP/Laravel, and cross-platform mobile apps with Ionic and Angular. Experienced in system integrations, cloud deployment, performance optimization, and the full software development lifecycle.
+
+## Services
+
+- [SEO for your website](https://ziaurrehmanjutt.github.io/services/seo/): Technical SEO, on-page fixes, schema markup, sitemaps, speed and Core Web Vitals, multilingual SEO. Get found on Google.
+- [Website security audit (OWASP Top 10)](https://ziaurrehmanjutt.github.io/services/security-audit/): Review of your site against the OWASP Top 10: injection, broken auth and access control, XSS, misconfiguration, outdated components. You get a clear report with prioritized fixes.
+- [AI automation for everyone](https://ziaurrehmanjutt.github.io/services/ai-automation/): Automate repetitive work with AI: chatbots, document and email processing, data entry, reports and workflow automation, for individuals and businesses of any size.
+- [API integration](https://ziaurrehmanjutt.github.io/services/api-integration/): Connect your systems: REST and GraphQL APIs, payments (Stripe, PayPal), QuickBooks, Google Maps, social login, ERP and eCommerce sync.
+- [Mobile app for any website](https://ziaurrehmanjutt.github.io/services/mobile-app-for-website/): Turn your website or web app into a native Android and iOS app with Ionic and Capacitor, including push notifications, offline mode and Play Store / App Store publishing.
+- [Custom websites & web apps](https://ziaurrehmanjutt.github.io/services/web-development/): Fast, secure, maintainable web applications with Laravel, PHP, Angular and WordPress: dashboards, portals, booking, admin panels.
+- [ERP & Dynamics 365 F&O](https://ziaurrehmanjutt.github.io/services/erp-dynamics-365/): X++ customization, SSRS reports, Power BI dashboards, integrations and deployments for Dynamics 365 Finance & Operations; Dolibarr and Magento too.
+- [Performance & hosting](https://ziaurrehmanjutt.github.io/services/performance-hosting/): Server setup, deployment, SSL, backups, Azure / AWS / Linux / IIS, and speed tuning so your site stays fast and online.
+- [Maintenance & support](https://ziaurrehmanjutt.github.io/services/maintenance-support/): Bug fixes, updates, monitoring and ongoing support for existing websites and apps, so you don't have to worry about them.
+
+## Projects
+
+- [Shorts Video Maker](https://ziaurrehmanjutt.github.io/shorts-video-maker/): Automatic YouTube Shorts factory for coding channels. Write a quiz question and get a finished 1080×1920 video with voice-over, countdown timer, answer reveal and music, plus a timeline editor for custom videos (typing code, shapes, pictures, keyframes). Laravel + Python. Available to buy or customize.
+- [DiyaQR](https://ziaurrehmanjutt.github.io/diyaqr/): Fast, beautiful QR scanner and generator. Create QR codes for links, Wi-Fi, contacts, events and locations, style them, and save or share. Landing pages in 11 languages.
+- [Diya Expense](https://ziaurrehmanjutt.github.io/diyaexpense/): Private, offline budget and expense tracker. Budgets, savings goals, loans, invoices, installments, recurring reminders, receipt photos and CSV export. No account, no ads. Landing pages in 12 languages.
+- [ng-spinner-wheel](https://ziaurrehmanjutt.github.io/ng-spinner-wheel/): Open-source Angular library: a lightweight, standalone spinner wheel with weighted items for raffles, lucky draws and prize wheels. Canvas-based, Angular 18-22, works in Ionic. Published on npm.
+- [QR Code Generator](https://github.com/ziaurrehmanjutt/qr-code-generate-app): An Ionic mobile app for managing and generating QR codes.
+- [Accessibility Widget](https://github.com/ziaurrehmanjutt/standalone-accessibility-widget): A standalone JavaScript widget that adds accessibility controls to any website.
+- [Scoreboard App](https://github.com/ziaurrehmanjutt/scoreboard-app): An interactive scoreboard experience built with TypeScript.
+- [Certificate Generator](https://github.com/ziaurrehmanjutt/certificates-genrate-laravel): Generate certificates in bulk with the Laravel ecosystem.
+
+## Other
+
+- [Resume](https://ziaurrehmanjutt.github.io/resume.html)
+- [GitHub](https://github.com/ziaurrehmanjutt)
+- Email: ziaa520@gmail.com
+- Phone / WhatsApp: +966 500256094
