@@ -123,6 +123,15 @@ window.SITE = {
      links: any of { live, code }  */
   projects: [
     {
+      title: "Shorts Video Maker",
+      category: "tool",
+      featured: true,
+      year: "2026",
+      description: "Automatic YouTube Shorts factory for coding channels. Write a quiz question and get a finished 1080×1920 video with voice-over, countdown timer, answer reveal and music, plus a timeline editor for custom videos (typing code, shapes, pictures, keyframes). Laravel + Python. Available to buy or customize.",
+      tags: ["Laravel", "Python", "FastAPI", "ffmpeg", "MySQL"],
+      links: { live: "shorts-video-maker/" }
+    },
+    {
       title: "DiyaQR",
       category: "mobile",
       featured: true,
