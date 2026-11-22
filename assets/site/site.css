@@ -285,3 +285,20 @@ dialog.lightbox button { margin-top: .8rem; }
 /* let long labels wrap instead of widening a grid column on small screens */
 .pkg-grid > *, .hero-grid > * { min-width: 0; }
 .eyebrow { flex-wrap: wrap; max-width: 100%; }
+
+/* ---------- RTL (Arabic) ---------- */
+[dir="rtl"] { --sans: "Noto Sans Arabic", "Inter", system-ui, sans-serif; --display: "Noto Sans Arabic", "Space Grotesk", system-ui, sans-serif; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] .brand, [dir="rtl"] .stat b, [dir="rtl"] .price { letter-spacing: 0; }
+[dir="rtl"] h1 { line-height: 1.3; }
+[dir="rtl"] h2 { line-height: 1.25; }
+[dir="rtl"] .eyebrow, [dir="rtl"] .project .meta, [dir="rtl"] .skill-card h3, [dir="rtl"] .tbl th, [dir="rtl"] .crumbs { letter-spacing: 0; text-transform: none; }
+[dir="rtl"] .skip { left: auto; right: 1rem; }
+[dir="rtl"] .hero::before, [dir="rtl"] .pkg-hero::before { right: auto; left: -180px; }
+[dir="rtl"] ul.pts { padding-left: 0; padding-right: 1.1rem; }
+[dir="rtl"] ul.pts.check { padding-right: 0; }
+[dir="rtl"] ul.pts.check li { padding-left: 0; padding-right: 1.8rem; }
+[dir="rtl"] ul.pts.check li::before { left: auto; right: 0; }
+[dir="rtl"] .note { border-left: 0; border-right: 3px solid var(--accent); border-radius: 12px 0 0 12px; }
+[dir="rtl"] .tbl th, [dir="rtl"] .tbl td { text-align: right; }
+[dir="rtl"] .code-bar span { margin-left: 0; margin-right: .6rem; }
+[dir="rtl"] .code-card pre, [dir="rtl"] .codeblock pre { direction: ltr; text-align: left; }

@@ -21,6 +21,15 @@ def load():
     return json.loads(subprocess.check_output(["node", "-e", js], text=True, encoding="utf-8"))
 
 
+def L(S, key, default):
+    """UI label for the current language (Arabic build passes S["_L"])."""
+    return S.get("_L", {}).get(key, default)
+
+
+def cat(S, c):
+    return S.get("_cat", {}).get(c, c)
+
+
 def ext(u):
     return ' target="_blank" rel="noopener noreferrer"' if re.match(r"https?:", u) else ""
 
@@ -40,8 +49,8 @@ def stats(S):
 def services(S):
     return "".join(
         '<article class="service"><div class="s-icon" aria-hidden="true">%s</div><h3>%s</h3><p>%s</p><div class="chips">%s</div>'
-        '<a class="s-link" href="services/%s/">Details &amp; pricing →</a></article>'
-        % (e(v["icon"]), e(v["title"]), e(v["text"]), chips(v.get("tags", [])), e(v["slug"])) for v in S["services"])
+        '<a class="s-link" href="services/%s/">%s</a></article>'
+        % (e(v["icon"]), e(v["title"]), e(v["text"]), chips(v.get("tags", [])), e(v["slug"]), L(S, "pricing_link", "Details &amp; pricing →")) for v in S["services"])
 
 
 def filters(S):
@@ -50,7 +59,7 @@ def filters(S):
         if p["category"] not in cats:
             cats.append(p["category"])
     return "".join('<button class="filter" type="button" data-cat="%s" aria-pressed="%s">%s</button>'
-                   % (e(c), "true" if i == 0 else "false", e(c)) for i, c in enumerate(cats))
+                   % (e(c), "true" if i == 0 else "false", e(cat(S, c))) for i, c in enumerate(cats))
 
 
 def projects(S):
@@ -59,19 +68,19 @@ def projects(S):
         l = p.get("links", {})
         a = ""
         if l.get("live"):
-            a += '<a href="%s"%s>%s</a>' % (e(l["live"]), ext(l["live"]), "Details →" if not l["live"].startswith("http") else "Open ↗")
+            a += '<a href="%s"%s>%s</a>' % (e(l["live"]), ext(l["live"]), L(S, "details", "Details →") if not l["live"].startswith("http") else L(S, "open", "Open ↗"))
         if l.get("demo"):
-            a += '<a href="%s"%s>Live demo ↗</a>' % (e(l["demo"]), ext(l["demo"]))
+            a += '<a href="%s"%s>%s</a>' % (e(l["demo"]), ext(l["demo"]), L(S, "demo", "Live demo ↗"))
         if l.get("npm"):
             a += '<a href="%s"%s>npm ↗</a>' % (e(l["npm"]), ext(l["npm"]))
         if l.get("code"):
-            a += '<a href="%s"%s>Source ↗</a>' % (e(l["code"]), ext(l["code"]))
+            a += '<a href="%s"%s>%s</a>' % (e(l["code"]), ext(l["code"]), L(S, "source", "Source ↗"))
         out.append(
             '<article class="project%s" data-cat="%s"><div class="meta"><span>%s%s</span>%s</div><h3>%s</h3><p>%s</p>'
             '<div class="chips">%s</div><div class="links">%s</div></article>'
-            % (" featured" if p.get("featured") else "", e(p["category"]), e(p["category"]),
+            % (" featured" if p.get("featured") else "", e(p["category"]), e(cat(S, p["category"])),
                " · " + e(p["year"]) if p.get("year") else "",
-               '<span class="badge">★ Featured</span>' if p.get("featured") else "",
+               '<span class="badge">%s</span>' % L(S, "featured", "★ Featured") if p.get("featured") else "",
                e(p["title"]), e(p["description"]), chips(p.get("tags", [])), a))
     return "".join(out)
 
@@ -111,10 +120,10 @@ def jsonld(S):
               "address": {"@type": "PostalAddress", "addressLocality": "Riyadh", "addressCountry": "SA"},
               "knowsAbout": [i for g in S["skills"][:4] for i in g["items"]]}
     biz = {"@context": "https://schema.org", "@type": "ProfessionalService", "name": S["name"] + " — Software Development Services",
-           "url": BASE + "/", "telephone": S["phone"], "email": S["email"], "areaServed": "Worldwide", "provider": {"@id": BASE + "/#person"},
+           "url": BASE + S.get("_prefix", "") + "/", "telephone": S["phone"], "email": S["email"], "inLanguage": S.get("_lang", "en"), "areaServed": "Worldwide", "provider": {"@id": BASE + "/#person"},
            "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [
                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": v["title"], "description": v["text"],
-                                                  "url": "%s/services/%s/" % (BASE, v["slug"])}} for v in S["services"]]}}
+                                                  "url": "%s%s/services/%s/" % (BASE, S.get("_prefix", ""), v["slug"])}} for v in S["services"]]}}
     return "\n".join('  <script type="application/ld+json">%s</script>' % json.dumps(x, ensure_ascii=False) for x in (person, biz))
 
 
@@ -129,7 +138,7 @@ def llms(S):
         if u and not u.startswith("http"):
             u = BASE + "/" + u
         L.append("- [%s](%s): %s" % (p["title"], u, p["description"]))
-    L += ["", "## Other", "", "- [Resume](%s/resume.html)" % BASE, "- [GitHub](%s)" % S["github"],
+    L += ["", "## Other", "", "- [Resume](%s/resume.html)" % BASE, "- [Arabic version / النسخة العربية](%s/ar/)" % BASE, "- [GitHub](%s)" % S["github"],
           "- Email: %s" % S["email"], "- Phone / WhatsApp: %s" % S["phone"], ""]
     return "\n".join(L)
 

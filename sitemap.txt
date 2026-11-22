@@ -205,3 +205,12 @@ https://ziaurrehmanjutt.github.io/services/web-development/
 https://ziaurrehmanjutt.github.io/services/erp-dynamics-365/
 https://ziaurrehmanjutt.github.io/services/performance-hosting/
 https://ziaurrehmanjutt.github.io/services/maintenance-support/
+https://ziaurrehmanjutt.github.io/ar/services/seo/
+https://ziaurrehmanjutt.github.io/ar/services/security-audit/
+https://ziaurrehmanjutt.github.io/ar/services/ai-automation/
+https://ziaurrehmanjutt.github.io/ar/services/api-integration/
+https://ziaurrehmanjutt.github.io/ar/services/mobile-app-for-website/
+https://ziaurrehmanjutt.github.io/ar/services/web-development/
+https://ziaurrehmanjutt.github.io/ar/services/erp-dynamics-365/
+https://ziaurrehmanjutt.github.io/ar/services/performance-hosting/
+https://ziaurrehmanjutt.github.io/ar/services/maintenance-support/

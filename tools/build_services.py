@@ -1,4 +1,4 @@
-"""Generates one static page per service into services/<slug>/index.html.
+"""Generates one static page per service (English: services/<slug>/, Arabic: ar/services/<slug>/).
 
 Run from anywhere:  python tools/build_services.py
 Edit the SERVICES list below (text, steps, packages, prices), run it, commit the output.
@@ -387,105 +387,158 @@ SERVICES = [
     },
 ]
 
-CSS_LINKS = '''  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/site/site.css">'''
+EN_UI = {
+    "all_services": "All services", "projects": "Projects", "resume": "Resume", "contact": "Contact",
+    "home": "Home", "services": "Services", "skip": "Skip to content",
+    "overview": "Overview", "what_this": "What this is", "who": "Who it's for:", "scope": "Scope", "what_you_get": "What you get",
+    "process": "Process", "how": "How it works", "cost": "Cost", "pricing": "Pricing & what affects it",
+    "pricing_intro": "Every project is different, so I quote per project instead of using a one-size price list. Tell me what you need and I'll reply with a fixed price or a clear estimate, so there are no surprises. Typical engagement types:",
+    "ask_quote": "Ask for a quote", "factors": "What affects the cost",
+    "third_party": "Third-party costs (hosting, domains, app store fees, API or AI usage, paid plugins) are paid by you directly to those providers and are not part of my fee.",
+    "questions": "Questions", "faq": "FAQ", "get_started": "Get started", "lets_talk": "Let's talk about your project.",
+    "talk_p": "Call, message on WhatsApp or email me with a short description. I'll reply with questions and a quote.",
+    "other": "Other services", "call": "Call", "whatsapp": "WhatsApp ↗", "email": "Email", "back": "← Back to portfolio",
+    "footer": "Riyadh, Saudi Arabia", "wa_text": "Hi Zia, I'm interested in your services.",
+}
+
+
+def build_ctx(lang):
+    ar = lang == "ar"
+    return {
+        "lang": "ar" if ar else "en",
+        "dir": "rtl" if ar else "ltr",
+        "assets": "../../../" if ar else "../../",     # relative path to site root from the page
+        "home": "../../" if ar else "../../",          # relative path to this language's homepage
+        "root": "../../../" if ar else "../../",       # site root (English home / resume.html)
+        "path": "/ar/services/" if ar else "/services/",
+        "ui": None,
+    }
+
+
+FONTS_EN = "family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700"
+FONTS_AR = FONTS_EN + "&family=Noto+Sans+Arabic:wght@400;500;600;700"
 
 THEME_JS = '''  <script>
     try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t);
       else if (matchMedia("(prefers-color-scheme: light)").matches) document.documentElement.setAttribute("data-theme", "light"); } catch (e) {}
   </script>'''
 
-WA_LINK = f"https://wa.me/{WA}?text=" + "Hi%20Zia%2C%20I'm%20interested%20in%20your%20services."
+INLINE_JS = '''  <script>
+  (function () {
+    var d = document, $ = function (i) { return d.getElementById(i); };
+    var y = $("year"); if (y) y.textContent = new Date().getFullYear();
+    var tb = $("theme-toggle");
+    if (tb) tb.addEventListener("click", function () {
+      var r = d.documentElement, n = r.getAttribute("data-theme") === "light" ? "dark" : "light";
+      r.setAttribute("data-theme", n); try { localStorage.setItem("theme", n); } catch (e) {}
+    });
+    var mb = $("menu-btn"), nl = $("nav-links");
+    if (mb && nl) {
+      mb.addEventListener("click", function () { mb.setAttribute("aria-expanded", nl.classList.toggle("open")); });
+      nl.addEventListener("click", function (e) { if (e.target.tagName === "A") nl.classList.remove("open"); });
+    }
+  })();
+  </script>'''
 
 
-def header():
-    return f'''  <a class="skip" href="#main">Skip to content</a>
-  <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="../../" aria-label="Zia Ur Rehman, home"><span class="brand-mark">ZR</span>Zia Ur Rehman</a>
-      <nav class="nav-links" id="nav-links" aria-label="Primary">
-        <a href="../../#services">All services</a>
-        <a href="../../#projects">Projects</a>
-        <a href="../../resume.html">Resume</a>
-        <a href="../../#contact">Contact</a>
-      </nav>
-      <div style="display:flex;gap:.5rem">
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light/dark theme">◐</button>
-        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
-      </div>
-    </div>
-  </header>'''
+def page(s, lang="en"):
+    import json
+    from urllib.parse import quote
+    ar = lang == "ar"
+    U = AR_UI if ar else EN_UI
+    c = build_ctx(lang)
+    url = f"{BASE}{c['path']}{s['slug']}/"
+    alt_en = f"{BASE}/services/{s['slug']}/"
+    alt_ar = f"{BASE}/ar/services/{s['slug']}/"
+    wa = f"https://wa.me/{WA}?text=" + quote(U["wa_text"])
+    switch = (f'<a href="{c["root"]}services/{s["slug"]}/" hreflang="en" lang="en">English</a>' if ar
+              else f'<a href="../../ar/services/{s["slug"]}/" hreflang="ar" lang="ar">العربية</a>')
 
+    def buttons():
+        return (f'<a class="btn btn-primary" href="tel:{TEL}">📞 {U["call"]} <bdi dir="ltr">{e(PHONE)}</bdi></a>\n'
+                f'            <a class="btn btn-ghost" href="{wa}" target="_blank" rel="noopener noreferrer">{U["whatsapp"]}</a>\n'
+                f'            <a class="btn btn-ghost" href="mailto:{EMAIL}">{U["email"]}</a>')
 
-def contact_buttons():
-    return f'''<a class="btn btn-primary" href="tel:{TEL}">📞 Call {e(PHONE)}</a>
-            <a class="btn btn-ghost" href="{WA_LINK}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-            <a class="btn btn-ghost" href="mailto:{EMAIL}">Email</a>'''
-
-
-def page(s):
-    url = f"{BASE}/services/{s['slug']}/"
     lis = "\n".join(f"          <li>{e(x)}</li>" for x in s["gets"])
     steps = "\n".join(
         f'          <div class="feat"><div class="step-n">{i}</div><h3>{e(t)}</h3><p>{e(d)}</p></div>'
-        for i, (t, d) in enumerate(s["steps"], 1)
-    )
+        for i, (t, d) in enumerate(s["steps"], 1))
     factors = "\n".join(f"          <li>{e(x)}</li>" for x in s["factors"])
     pk = "\n".join(
         f'''          <div class="price-card"><h3>{e(n)}</h3><div class="price">{e(p)}</div><p>{e(d)}</p>
-            <a class="btn btn-ghost" href="mailto:{EMAIL}?subject={e(s["short"])}%20-%20{e(n)}">Ask for a quote</a></div>'''
-        for n, d, p in s["packages"]
-    )
-    faq = "\n".join(
-        f'          <details class="faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in s["faq"]
-    )
-    others = "\n".join(
-        f'          <a class="chip" href="../{o["slug"]}/">{o["icon"]} {e(o["short"])}</a>' for o in SERVICES if o["slug"] != s["slug"]
-    )
-    import json
+            <a class="btn btn-ghost" href="mailto:{EMAIL}?subject={quote(s["short"] + " - " + n)}">{U["ask_quote"]}</a></div>'''
+        for n, d, p in s["packages"])
+    faq = "\n".join(f'          <details class="faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in s["faq"])
+    others = "\n".join(f'          <a class="chip" href="../{o["slug"]}/">{o["icon"]} {e(o["short"])}</a>'
+                       for o in ALL_SERVICES[lang] if o["slug"] != s["slug"])
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "Service", "name": s["title"], "description": s["meta"],
-        "url": url, "areaServed": "Worldwide",
+        "url": url, "inLanguage": lang, "areaServed": "Worldwide",
         "provider": {"@type": "Person", "name": "Zia Ur Rehman", "url": BASE + "/", "telephone": PHONE, "email": EMAIL},
     }, ensure_ascii=False)
     faq_ld = json.dumps({
-        "@context": "https://schema.org", "@type": "FAQPage",
+        "@context": "https://schema.org", "@type": "FAQPage", "inLanguage": lang,
         "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in s["faq"]],
     }, ensure_ascii=False)
+    fonts = FONTS_AR if ar else FONTS_EN
+    A = c["assets"]
+    sitename = "ضياء الرحمن" if ar else "Zia Ur Rehman"
+    title_suffix = "Zia Ur Rehman"
     return f'''<!DOCTYPE html>
-<html lang="en">
+<html lang="{c["lang"]}" dir="{c["dir"]}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{e(s["title"])} | Zia Ur Rehman</title>
+  <title>{e(s["title"])} | {title_suffix}</title>
   <meta name="description" content="{e(s["meta"])}">
   <meta name="theme-color" content="#0b1018">
   <link rel="canonical" href="{url}">
-  <link rel="icon" type="image/svg+xml" href="../../assets/site/favicon.svg">
+  <link rel="alternate" hreflang="en" href="{alt_en}">
+  <link rel="alternate" hreflang="ar" href="{alt_ar}">
+  <link rel="alternate" hreflang="x-default" href="{alt_en}">
+  <link rel="icon" type="image/svg+xml" href="{A}assets/site/favicon.svg">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{e(s["title"])} | Zia Ur Rehman">
+  <meta property="og:locale" content="{"ar_AR" if ar else "en_US"}">
+  <meta property="og:title" content="{e(s["title"])} | {title_suffix}">
   <meta property="og:description" content="{e(s["meta"])}">
   <meta property="og:url" content="{url}">
 {THEME_JS}
-{CSS_LINKS}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?{fonts}&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{A}assets/site/site.css">
   <script type="application/ld+json">{ld}</script>
   <script type="application/ld+json">{faq_ld}</script>
 </head>
 <body id="top">
-{header()}
+  <a class="skip" href="#main">{U["skip"]}</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="{c["home"]}" aria-label="{sitename}"><span class="brand-mark">ZR</span>{sitename}</a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="{c["home"]}#services">{U["all_services"]}</a>
+        <a href="{c["home"]}#projects">{U["projects"]}</a>
+        <a href="{c["root"]}resume.html">{U["resume"]}</a>
+        <a href="{c["home"]}#contact">{U["contact"]}</a>
+        {switch}
+      </nav>
+      <div style="display:flex;gap:.5rem">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Theme">◐</button>
+        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </div>
+  </header>
 
   <main id="main">
     <div class="pkg-hero">
       <div class="wrap">
-        <div class="crumbs"><a href="../../">Home</a> / <a href="../../#services">Services</a> / {e(s["short"])}</div>
+        <div class="crumbs"><a href="{c["home"]}">{U["home"]}</a> / <a href="{c["home"]}#services">{U["services"]}</a> / {e(s["short"])}</div>
         <div style="max-width:46rem;position:relative">
           <div class="s-icon" aria-hidden="true" style="margin-bottom:1rem">{s["icon"]}</div>
           <h1>{e(s["title"])}</h1>
           <p class="lead">{e(s["tagline"])}</p>
           <div class="cta-row">
-            {contact_buttons()}
+            {buttons()}
           </div>
         </div>
       </div>
@@ -493,17 +546,17 @@ def page(s):
 
     <section class="alt">
       <div class="wrap about">
-        <div><span class="eyebrow">Overview</span><h2>What this is</h2></div>
+        <div><span class="eyebrow">{U["overview"]}</span><h2>{U["what_this"]}</h2></div>
         <div>
           <p>{e(s["intro"])}</p>
-          <p><b style="color:var(--text)">Who it's for:</b> {e(s["who"])}</p>
+          <p><b style="color:var(--text)">{U["who"]}</b> {e(s["who"])}</p>
         </div>
       </div>
     </section>
 
     <section>
       <div class="wrap">
-        <div class="sec-head"><div><span class="eyebrow">Scope</span><h2>What you get</h2></div></div>
+        <div class="sec-head"><div><span class="eyebrow">{U["scope"]}</span><h2>{U["what_you_get"]}</h2></div></div>
         <ul class="pts check">
 {lis}
         </ul>
@@ -512,7 +565,7 @@ def page(s):
 
     <section class="alt">
       <div class="wrap">
-        <div class="sec-head"><div><span class="eyebrow">Process</span><h2>How it works</h2></div></div>
+        <div class="sec-head"><div><span class="eyebrow">{U["process"]}</span><h2>{U["how"]}</h2></div></div>
         <div class="feat-grid">
 {steps}
         </div>
@@ -521,22 +574,22 @@ def page(s):
 
     <section id="pricing">
       <div class="wrap">
-        <div class="sec-head"><div><span class="eyebrow">Cost</span><h2>Pricing &amp; what affects it</h2></div></div>
-        <p class="lead" style="max-width:48rem">Every project is different, so I quote per project instead of using a one-size price list. Tell me what you need and I'll reply with a fixed price or a clear estimate, so there are no surprises. Typical engagement types:</p>
+        <div class="sec-head"><div><span class="eyebrow">{U["cost"]}</span><h2>{U["pricing"]}</h2></div></div>
+        <p class="lead" style="max-width:48rem">{U["pricing_intro"]}</p>
         <div class="price-grid">
 {pk}
         </div>
-        <h3 style="margin:2.2rem 0 .8rem">What affects the cost</h3>
+        <h3 style="margin:2.2rem 0 .8rem">{U["factors"]}</h3>
         <ul class="pts">
 {factors}
         </ul>
-        <div class="note">Third-party costs (hosting, domains, app store fees, API or AI usage, paid plugins) are paid by you directly to those providers and are not part of my fee.</div>
+        <div class="note">{U["third_party"]}</div>
       </div>
     </section>
 
     <section class="alt">
       <div class="wrap">
-        <div class="sec-head"><div><span class="eyebrow">Questions</span><h2>FAQ</h2></div></div>
+        <div class="sec-head"><div><span class="eyebrow">{U["questions"]}</span><h2>{U["faq"]}</h2></div></div>
         <div class="faq-list">
 {faq}
         </div>
@@ -546,14 +599,14 @@ def page(s):
     <section>
       <div class="wrap">
         <div class="contact-box">
-          <span class="eyebrow">Get started</span>
-          <h2>Let's talk about your project.</h2>
-          <p>Call, message on WhatsApp or email me with a short description. I'll reply with questions and a quote.</p>
+          <span class="eyebrow">{U["get_started"]}</span>
+          <h2>{U["lets_talk"]}</h2>
+          <p>{U["talk_p"]}</p>
           <div class="cta-row">
-            {contact_buttons()}
+            {buttons()}
           </div>
         </div>
-        <h3 style="margin:2.5rem 0 .8rem">Other services</h3>
+        <h3 style="margin:2.5rem 0 .8rem">{U["other"]}</h3>
         <div class="chips">
 {others}
         </div>
@@ -563,41 +616,61 @@ def page(s):
 
   <footer>
     <div class="wrap">
-      <span>© <span id="year">2026</span> Zia Ur Rehman · Riyadh, Saudi Arabia</span>
-      <a href="../../">← Back to portfolio</a>
+      <span>© <span id="year">2026</span> {sitename} · {U["footer"]}</span>
+      <a href="{c["home"]}">{U["back"]}</a>
     </div>
   </footer>
 
-  <script src="../../assets/site/data.js"></script>
-  <script src="../../assets/site/site.js"></script>
+{INLINE_JS}
 </body>
 </html>
 '''
 
 
-def main():
+def merged(lang):
+    """Service dicts for a language. Arabic merges tools/ar_content.py over the English definitions."""
+    if lang == "en":
+        return SERVICES
+    import ar_content as A
+    out = []
     for s in SERVICES:
-        d = os.path.join(ROOT, "services", s["slug"])
-        os.makedirs(d, exist_ok=True)
-        with open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="\n") as f:
-            f.write(page(s))
+        a = A.SERVICES[s["slug"]]
+        t = A.SITE["services"][s["slug"]][0]
+        out.append({**s, **a, "title": t,
+                    "packages": [(n, d, A.QUOTE) for n, d in a["packages"]]})
+    return out
+
+
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ar_content  # noqa: E402
+
+AR_UI = ar_content.UI
+ALL_SERVICES = {"en": SERVICES, "ar": merged("ar")}
+
+
+def main():
+    for lang in ("en", "ar"):
+        for s in ALL_SERVICES[lang]:
+            d = os.path.join(ROOT, *(["ar"] if lang == "ar" else []), "services", s["slug"])
+            os.makedirs(d, exist_ok=True)
+            with open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="\n") as f:
+                f.write(page(s, lang))
     # sitemap entries (idempotent)
-    for fn, fmt in (("sitemap.txt", "{u}\n"),
-                    ("sitemap.xml", "  <url>\n    <loc>{u}</loc>\n    <lastmod>" + LASTMOD + "</lastmod>\n  </url>\n")):
+    urls = [f"{BASE}{pre}/services/{s['slug']}/" for pre in ("", "/ar") for s in SERVICES]
+    for fn in ("sitemap.txt", "sitemap.xml"):
         p = os.path.join(ROOT, fn)
         txt = open(p, encoding="utf-8").read()
-        add = ""
-        for s in SERVICES:
-            u = f"{BASE}/services/{s['slug']}/"
-            if u not in txt:
-                add += fmt.format(u=u)
-        if add:
-            if fn.endswith(".xml"):
-                txt = txt.replace("</urlset>", add + "</urlset>")
-            else:
-                txt = txt.rstrip("\n") + "\n" + add
-            open(p, "w", encoding="utf-8", newline="\n").write(txt)
-    print("built", len(SERVICES), "pages")
+        new = [u for u in urls if u not in txt]
+        if not new:
+            continue
+        if fn.endswith(".xml"):
+            add = "".join("  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n  </url>\n" % (u, LASTMOD) for u in new)
+            txt = txt.replace("</urlset>", add + "</urlset>")
+        else:
+            txt = txt.rstrip("\n") + "\n" + "".join(u + "\n" for u in new)
+        open(p, "w", encoding="utf-8", newline="\n").write(txt)
+    print("built", len(SERVICES) * 2, "service pages")
 
 
 if __name__ == "__main__":
